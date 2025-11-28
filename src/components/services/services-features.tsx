@@ -5,25 +5,42 @@ import { ScrollAnimation } from '@/components/ui/scroll-animation';
 import { Plus, Minus, MessageCircle } from 'lucide-react';
 
 const faqs = [
-  {
-    question: "Do you offer painless root canal treatments?",
-    answer: "Yes. We specialize in single-sitting, microscopic Root Canal Treatments (RCT) right here in Electronic City. We use advanced rotary instruments and effective local anesthesia to ensure the procedure is virtually painless. Most patients return to work the same day."
-  },
-  {
-    question: "How much do Dental Implants cost in Bangalore?",
-    answer: "Our implant pricing is transparent and competitive. The cost depends on the implant brand (e.g., Nobel Biocare, Osstem) and the type of crown used (Metal-Free Zirconia vs. Ceramic). We provide a written, itemized estimate during your consultation—no hidden fees."
-  },
-  {
-    question: "Do you see children (Pediatric Dentistry)?",
-    answer: "Absolutely. We have a dedicated pediatric protocol to make visits fear-free for children. From fluoride applications and sealants to habit-breaking appliances, we ensure your child's dental foundation is strong."
-  },
-  {
-    question: "Are you open on weekends?",
-    answer: "Yes, we understand the busy schedules of IT professionals in Neeladri Nagar. We are open from 12:00 PM to 8:00 PM (Mon-Sat) and 12:00 PM to 5:00 PM on Sundays."
-  },
+ 
   {
     question: "Do you accept dental insurance?",
     answer: "We accept most major insurance plans and can assist you with the pre-authorization paperwork to maximize your benefits. Please bring your policy details, and our front desk will handle the rest."
+  },
+    {
+    question: "How often should I get a dental cleaning?",
+    answer: "We recommend a professional teeth cleaning every 6 months to prevent cavities, gum disease, and tartar buildup. Patients with sensitive gums or a history of gum infections may need more frequent cleanings. Regular cleanings help maintain long-term oral health."
+  },
+  {
+    question: "What should I do if I have a dental emergency?",
+    answer: "If you experience severe tooth pain, swelling, bleeding, a knocked-out tooth, or a broken crown, contact us immediately. We offer same-day emergency dental appointments in Electronic City for quick relief and treatment."
+  },
+  {
+    question: "Are teeth whitening treatments safe?",
+    answer: "Yes, our professional teeth whitening treatments are 100% safe and deliver faster, more even results compared to over-the-counter kits. We use enamel-safe technology that brightens your smile while protecting your teeth and gums."
+  },
+  {
+    question: "How long do dental crowns and bridges last?",
+    answer: "With proper oral hygiene, our zirconia and ceramic crowns can last 10–15 years or more. We guide you on care routines to extend their lifespan. Regular checkups help ensure your crown or bridge stays intact and functional."
+  },
+  {
+    question: "Can I fix gaps or crooked teeth without braces?",
+    answer: "Yes. We offer clear aligners, cosmetic bonding, and veneers to correct gaps and misalignments without metal braces. During your consultation, we evaluate your smile and suggest the best solution based on your dental structure and goals."
+  },
+  {
+    question: "Do you offer smile makeover treatments?",
+    answer: "Yes. Our smile makeover services include veneers, crowns, whitening, gum contouring, and digital smile designing. This allows you to preview your new smile before starting treatment, ensuring predictable results."
+  },
+  {
+    question: "Is teeth sensitivity treatable?",
+    answer: "Yes. Sensitivity is commonly caused by enamel wear, gum recession, or cavities. We diagnose the root cause and provide treatments like desensitizing agents, fluoride therapy, bonding, or gum coverage procedures to eliminate sensitivity."
+  },
+  {
+    question: "How do I know which dental treatment is right for me?",
+    answer: "We provide a thorough oral examination using digital X-rays, intraoral cameras, and diagnostic tools. Based on your oral condition, lifestyle, and goals, we create a personalized treatment plan tailored to your needs."
   }
 ];
 

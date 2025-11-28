@@ -16,14 +16,14 @@ const WorkCard = ({
   alt: string;
 }) => (
   <div className="flex flex-col gap-5 group cursor-pointer">
-    <div className="rounded-[2rem] overflow-hidden aspect-[3/4] relative bg-gray-200">
+    <div className="rounded-[2rem] overflow-hidden aspect-[3/4] relative bg-gray-100">
       <ImageWithFallback
         src={image}
-        alt={alt} // SEO: Important for Google Images
+        alt={alt} 
         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
       />
-      {/* Overlay for text readability if image is light */}
-      <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-500" />
+      {/* Subtle Gradient Overlay for depth */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
     </div>
     <div className="px-2">
       <h3 className="text-2xl font-serif font-medium text-[#1A1A1A] mb-2 tracking-tight group-hover:text-[#1d5343] transition-colors">
@@ -59,33 +59,33 @@ export const OurWorks = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 mb-24">
         
-        {/* Card 1: High Value Keyword "Invisalign/Aligners" */}
+        {/* Card 1: Invisalign - Image: Confident smile */}
         <ScrollAnimation delay={0.1}>
           <WorkCard
-            image="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1080"
+            image="https://images.unsplash.com/photo-1571772996211-2f02c9727629?q=80&w=1280&auto=format&fit=crop"
             title="Invisalign & Aligners"
             description="Straighten teeth discreetly without metal wires. The clear choice for adults."
-            alt="Patient smiling after invisible braces treatment in Bangalore"
+            alt="Patient smiling after invisible braces treatment"
           />
         </ScrollAnimation>
 
-        {/* Card 2: High Value Keyword "Veneers/Whitening" */}
+        {/* Card 2: Veneers - Image: Close up perfect teeth */}
         <ScrollAnimation delay={0.2}>
           <WorkCard
-            image="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?q=80&w=1080"
+            image="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?q=80&w=1280&auto=format&fit=crop"
             title="Porcelain Veneers"
             description="Fix gaps, chips, and discoloration instantly with custom-crafted ceramic shells."
-            alt="Cosmetic dentistry veneers before and after"
+            alt="Cosmetic dentistry veneers"
           />
         </ScrollAnimation>
 
-        {/* Card 3: High Value Keyword "Implants" */}
+        {/* Card 3: Implants - Image: Happy older adult */}
         <ScrollAnimation delay={0.3}>
           <WorkCard
-            image="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=1080"
+            image="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=1280&auto=format&fit=crop"
             title="Permanent Implants"
             description="Replace missing teeth with natural-looking, durable implants that last a lifetime."
-            alt="Dental implant surgery result"
+            alt="Dental implant result"
           />
         </ScrollAnimation>
       </div>

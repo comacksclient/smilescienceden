@@ -16,20 +16,21 @@ const CareCard = ({
   alt: string 
 }) => (
   <div className="flex flex-col gap-5 group cursor-pointer">
-    <div className="rounded-[2rem] overflow-hidden aspect-[4/3] w-full bg-gray-100 relative">
+    {/* Card Image Container - Increased border radius for premium feel */}
+    <div className="rounded-[2rem] overflow-hidden aspect-[4/3] w-full bg-gray-100 relative shadow-md group-hover:shadow-xl transition-all duration-500">
        <ImageWithFallback 
          src={image}
          alt={alt}
-         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
        />
-       {/* Premium dark gradient overlay on hover */}
-       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
+       {/* Premium gradient overlay */}
+       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
     </div>
     <div className="px-2">
         <h3 className="text-2xl font-serif font-medium text-[#1A1A1A] mb-3 group-hover:text-[#1d5343] transition-colors">
           {title}
         </h3>
-        <p className="text-sm text-gray-500 leading-relaxed max-w-xs font-sans">
+        <p className="text-sm text-gray-500 leading-relaxed max-w-xs font-sans font-light">
             {description}
         </p>
     </div>
@@ -50,40 +51,38 @@ export const PersonalizedCare = () => {
            </div>
            <h2 className="text-4xl md:text-5xl font-serif font-medium text-[#1A1A1A] tracking-tight leading-[1.15]">
              Comprehensive care, <br /> 
-             <span className="text-gray-400 italic">tailored to your needs.</span>
+             <span className="text-gray-400 italic font-serif">tailored to your needs.</span>
            </h2>
         </div>
-        
- 
       </div>
       </ScrollAnimation>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
         
-        {/* Card 1: High Intent "Pain" Keyword */}
+        {/* Card 1: Root Canal (Image: Calm, Reassuring Professional Setting) */}
         <ScrollAnimation delay={0.1}>
         <CareCard 
-            image="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1080"
+            image="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1280&auto=format&fit=crop"
             title="Root Canal & Fillings"
             alt="Painless root canal treatment Bangalore"
             description="Save your natural teeth with our painless single-sitting Root Canal Treatments (RCT) and aesthetic tooth-colored fillings."
         />
         </ScrollAnimation>
 
-        {/* Card 2: High Intent "Family" Keyword */}
+        {/* Card 2: Pediatric (Image: Happy Kid Brushing - Friendly Vibe) */}
         <ScrollAnimation delay={0.2}>
         <CareCard 
-            image="https://images.unsplash.com/photo-1571772996211-2f02c9727629?q=80&w=1080"
+            image="https://images.unsplash.com/photo-1571772996211-2f02c9727629?q=80&w=1280&auto=format&fit=crop"
             title="Pediatric Dentistry"
             alt="Kids dentist electronic city"
             description="Specialized dental care for children in a fear-free environment. From fluoride applications to habit breaking appliances."
         />
         </ScrollAnimation>
 
-        {/* Card 3: High Intent "Hygiene" Keyword */}
+        {/* Card 3: Scaling/Hygiene (Image: Bright Clean Smile) */}
         <ScrollAnimation delay={0.3}>
         <CareCard 
-            image="https://images.unsplash.com/photo-1600170451864-d621b13175bd?q=80&w=1080"
+            image="https://images.unsplash.com/photo-1598256989494-02630b6dc7a4?q=80&w=1280&auto=format&fit=crop"
             title="Scaling & Polishing"
             alt="Dental teeth cleaning and scaling service"
             description="Remove stubborn plaque and stains with our advanced ultrasonic scaling. Essential for preventing gum disease and bad breath."

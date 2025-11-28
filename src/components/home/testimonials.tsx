@@ -2,10 +2,10 @@
 
 import { cn } from "@/lib/utils"
 import { Marquee } from "@/components/ui/marque" // Adjust path if needed
-import { Star, Quote } from "lucide-react"
+
 import { ScrollAnimation } from '@/components/ui/scroll-animation'
 
-// --- 1. REAL GOOGLE REVIEWS DATA (SEO Optimized) ---
+
 const reviews = [
   {
     name: "Piyush Raj",

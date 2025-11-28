@@ -30,13 +30,7 @@ export const PatientsHero = () => {
                   Call to Schedule
                 </Button>
               </a>
-              <Button 
-                variant="outline" 
-                className="rounded-full px-8 h-12 text-sm font-semibold border-gray-300 text-[#1A1A1A] flex items-center gap-2"
-              >
-                <FileText className="w-4 h-4" />
-                Download Forms
-              </Button>
+             
             </div>
           </div>
         </ScrollAnimation>

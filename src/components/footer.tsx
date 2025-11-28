@@ -1,17 +1,45 @@
 "use client"
-import { ArrowRight, Instagram, Facebook, Linkedin, Youtube, Twitter } from 'lucide-react';
+import { ArrowRight, Instagram, Facebook, Linkedin, Phone, Mail, MapPin, Clock } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+interface FooterLink {
+  label: string;
+  href: string;
+  className?: string;
+}
+
 export const Footer = () => {
+  
+  const quickLinks: FooterLink[] = [
+    { label: 'Home', href: '/' },
+    { label: 'About Us', href: '/about' },
+    { label: 'Services', href: '/services' },
+    { label: 'For Patients', href: '/patients' },
+    { label: 'Book Appointment', href: '/book' },
+    { label: 'Contact', href: '/contact' }
+  ];
+
+  // Trimmed list to make footer shorter
+  const serviceLinks: FooterLink[] = [
+    { label: 'Root Canal Treatment', href: '/services/rootcanal' },
+    { label: 'Dental Implants', href: '/services/dentalimplant' },
+    { label: 'Crowns & Bridges', href: '/services/dentalcrowns' },
+    { label: 'Cosmetic Dentistry', href: '/services/cosmetic' },
+    { label: 'Braces & Aligners', href: '/services/braces' },
+    { label: 'Teeth Whitening', href: '/services/whitening' },
+    { label: 'Professional Cleaning', href: '/services/cleaning' },
+    { label: 'View All Services', href: '/services', className: 'font-semibold text-[#1d5343] hover:underline' }
+  ];
+
   return (
-    <footer className="bg-[#FDFBF0] pt-20 pb-10 font-sans border-t border-[#1d5343]/5">
+    <footer className="bg-[#FDFBF0] pt-16 pb-8 font-sans border-t border-[#1d5343]/5">
       <div className="px-6 md:px-12 max-w-[1400px] mx-auto">
         
-        <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-20 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-16">
            
-           {/* --- COLUMN 1: BRAND & CTA --- */}
-           <div className="lg:w-[35%] space-y-8">
+           {/* --- COLUMN 1: BRAND & SOCIALS --- */}
+           <div className="space-y-6">
               {/* Logo */}
               <Link href="/" className="flex items-center gap-3 group w-fit">
                 <div className="relative w-8 h-8">
@@ -23,113 +51,134 @@ export const Footer = () => {
                     className="object-contain"
                   />
                 </div>
-                <span className="text-xl font-bold text-[#1A1A1A] font-serif group-hover:text-[#1d5343] transition-colors">
+                <span className="text-lg font-bold text-[#1A1A1A] font-serif group-hover:text-[#1d5343] transition-colors">
                   Smile Science
                 </span>
               </Link>
 
               {/* Tagline */}
-              <p className="text-[#4B5563] text-lg leading-relaxed max-w-[320px]">
-                Empowering your smile with innovative and reliable dental solutions in Electronic City.
+              <p className="text-[#4B5563] text-sm leading-relaxed max-w-[280px]">
+                Expert dental care in Electronic City. Painless treatments, modern technology, and compassionate service.
               </p>
 
               {/* Button */}
               <Link href="/book" className="inline-block">
-                <button className="group bg-[#1d5343] text-white px-8 py-3.5 rounded-full flex items-center gap-2 text-sm font-semibold transition-all hover:bg-[#153e32] hover:shadow-lg hover:-translate-y-0.5">
-                  Book Appointment
+                <button className="group bg-[#1d5343] text-white px-6 py-2.5 rounded-full flex items-center gap-2 text-sm font-semibold transition-all hover:bg-[#153e32] hover:shadow-lg hover:-translate-y-0.5">
+                  Book Now
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
               </Link>
-           </div>
 
-           {/* --- MIDDLE COLUMNS: LINKS --- */}
-           <div className="flex flex-col sm:flex-row gap-12 lg:gap-24 lg:w-[30%]">
-              
-              {/* Navigations */}
-              <div className="flex flex-col gap-5">
-                 <h4 className="font-bold text-[#1A1A1A] text-base font-serif">Quick Links</h4>
-                 <ul className="space-y-3">
-                    {[
-                      { label: 'Home', href: '/' },
-                      { label: 'Services', href: '/services' },
-                      { label: 'About Us', href: '/about' },
-                      { label: 'For Patients', href: '/patients' },
-                      { label: 'Contact', href: '/contact' }
-                    ].map((item) => (
-                      <li key={item.label}>
-                        <Link href={item.href} className="text-[#4B5563] hover:text-[#1d5343] transition-colors text-sm font-medium">
-                          {item.label}
-                        </Link>
-                      </li>
-                    ))}
-                 </ul>
-              </div>
-
-              {/* Support / Legal */}
-              <div className="flex flex-col gap-5">
-                 <h4 className="font-bold text-[#1A1A1A] text-base font-serif">Support</h4>
-                 <ul className="space-y-3">
-                    {[
-                        { label: 'Privacy Policy', href: '/privacy' },
-                        { label: 'Terms of Service', href: '/terms' },
-                        { label: 'Emergency Care', href: '/contact' },
-                        { label: 'FAQs', href: '/services' }
-                    ].map((item) => (
-                      <li key={item.label}>
-                         <Link href={item.href} className="text-[#4B5563] hover:text-[#1d5343] transition-colors text-sm font-medium">
-                          {item.label}
-                        </Link>
-                      </li>
-                    ))}
-                 </ul>
+              {/* Social Icons (Moved Here) */}
+              <div className="flex items-center gap-3 pt-2">
+                {[
+                  { icon: Instagram, href: "https://instagram.com" },
+                  { icon: Facebook, href: "https://facebook.com" },
+                  { icon: Linkedin, href: "https://linkedin.com" }
+                ].map((Social, idx) => (
+                  <a 
+                    key={idx} 
+                    href={Social.href} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 border border-[#1d5343]/10 rounded-full flex items-center justify-center text-[#4B5563] hover:bg-[#1d5343] hover:text-white hover:border-[#1d5343] transition-all duration-300"
+                  >
+                    <Social.icon className="w-4 h-4" strokeWidth={1.5} /> 
+                  </a>
+                ))}
               </div>
            </div>
 
-           {/* --- COLUMN 4: NEWSLETTER --- */}
-           <div className="lg:w-[35%] space-y-5">
-              <h4 className="font-bold text-[#1A1A1A] text-base font-serif">Stay Connected</h4>
-              <p className="text-[#4B5563] text-sm leading-relaxed">
-                Join our newsletter for dental health tips, exclusive offers, and clinic updates.
-              </p>
-              
-              {/* Input Field */}
-              <div className="relative max-w-[340px]">
-                <input 
-                  type="email" 
-                  placeholder="Email address" 
-                  className="w-full bg-white border border-gray-200 rounded-full py-3.5 px-5 text-sm text-[#1A1A1A] placeholder:text-gray-400 focus:outline-none focus:border-[#1d5343] focus:ring-1 focus:ring-[#1d5343] transition-all"
-                />
-                <button className="absolute right-1.5 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-[#1d5343] hover:bg-[#153e32] text-white rounded-full transition-all hover:scale-105 active:scale-95 shadow-sm">
-                  <ArrowRight className="w-4 h-4" />
-                </button>
+           {/* --- COLUMN 2: QUICK LINKS --- */}
+           <div className="flex flex-col gap-4">
+              <h4 className="font-bold text-[#1A1A1A] text-base font-serif">Quick Links</h4>
+              <ul className="space-y-2">
+                 {quickLinks.map((item) => (
+                   <li key={item.label}>
+                     <Link href={item.href} className={`text-[#4B5563] hover:text-[#1d5343] transition-colors text-sm font-medium ${item.className || ''}`}>
+                       {item.label}
+                     </Link>
+                   </li>
+                 ))}
+              </ul>
+           </div>
+
+           {/* --- COLUMN 3: SERVICES --- */}
+           <div className="flex flex-col gap-4">
+              <h4 className="font-bold text-[#1A1A1A] text-base font-serif">Our Services</h4>
+              <ul className="space-y-2">
+                 {serviceLinks.map((item) => (
+                   <li key={item.label}>
+                     <Link href={item.href} className={`text-[#4B5563] hover:text-[#1d5343] transition-colors text-sm font-medium ${item.className || ''}`}>
+                       {item.label}
+                     </Link>
+                   </li>
+                 ))}
+              </ul>
+           </div>
+
+           {/* --- COLUMN 4: CONTACT --- */}
+           <div className="flex flex-col gap-4">
+              <h4 className="font-bold text-[#1A1A1A] text-base font-serif">Contact Info</h4>
+              <div className="space-y-4">
+                 {/* Address */}
+                 <div className="flex gap-3 items-start">
+                    <MapPin className="w-5 h-5 text-[#1d5343] shrink-0 mt-0.5" />
+                    <div>
+                       <p className="text-[#4B5563] text-sm leading-relaxed">
+                          4th Floor, 224, 3rd Cross Road, Neeladri Nagar, Above ICICI Bank, Electronic City Phase 1, Karnataka 560100
+                       </p>
+                    </div>
+                 </div>
+
+                 {/* Phone */}
+                 <div className="flex gap-3 items-start">
+                    <Phone className="w-5 h-5 text-[#1d5343] shrink-0 mt-0.5" />
+                    <div className="space-y-1">
+                       <a href="tel:+916206700442" className="text-[#4B5563] hover:text-[#1d5343] transition-colors text-sm font-medium block">
+                          +91 62067 00442
+                       </a>
+                    </div>
+                 </div>
+
+                 {/* Email */}
+                 <div className="flex gap-3 items-start">
+                    <Mail className="w-5 h-5 text-[#1d5343] shrink-0 mt-0.5" />
+                    <a href="mailto:drpranjal@smilescience.in" className="text-[#4B5563] hover:text-[#1d5343] transition-colors text-sm font-medium">
+                       drpranjal@smilescience.in
+                    </a>
+                 </div>
+
+                 {/* Hours */}
+                 <div className="flex gap-3 items-start">
+                    <Clock className="w-5 h-5 text-[#1d5343] shrink-0 mt-0.5" />
+                    <div className="space-y-1">
+                       <p className="text-[#4B5563] text-sm font-medium">Mon-Sat: 10:00 AM - 8:30 PM</p>
+                       <p className="text-[#4B5563] text-sm font-medium">Sun: 10:00 AM - 2:00 PM</p>
+                    </div>
+                 </div>
               </div>
            </div>
 
         </div>
 
         {/* --- DIVIDER --- */}
-        <div className="h-px w-full bg-[#1d5343]/10 mb-8"></div>
+        <div className="h-px w-full bg-[#1d5343]/10 mb-6"></div>
 
         {/* --- BOTTOM SECTION --- */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-           <p className="text-[#4B5563] text-sm text-center md:text-left font-medium">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+           <p className="text-[#4B5563] text-xs font-medium">
              © {new Date().getFullYear()} Smile Science Dental Clinic. All rights reserved.
            </p>
 
-           {/* Social Icons */}
-           <div className="flex items-center gap-3">
-              {[Instagram, Facebook, Linkedin, Youtube, Twitter].map((Icon, idx) => (
-                <a 
-                  key={idx} 
-                  href="#" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 border border-[#1d5343]/10 rounded-full flex items-center justify-center text-[#4B5563] hover:bg-[#1d5343] hover:text-white hover:border-[#1d5343] transition-all duration-300"
-                >
-                  <Icon className="w-4 h-4" strokeWidth={1.5} /> 
-                </a>
-              ))}
-           </div>
+           <a 
+             href="https://comacks.com" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             className="text-[#4B5563] text-xs hover:text-[#1d5343] transition-colors"
+           >
+             Powered by <span className="font-bold">Comacks</span>
+           </a>
         </div>
 
       </div>
