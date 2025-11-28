@@ -1,9 +1,10 @@
 import { Chatbot } from "@/components/chatbot";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { ServicesFAQ } from "@/components/services/services-features";
 import { ServicesHero } from "@/components/services/services-hero";
 import { ServicesList } from "@/components/services/services-list";
-import { ServicesFeatures } from "@/components/services/services-features";
+
 
 export default function ServicesPage() {
   return (
@@ -12,7 +13,7 @@ export default function ServicesPage() {
       <main>
         <ServicesHero />
         <ServicesList />
-        <ServicesFeatures />
+        <ServicesFAQ />
       </main>
   
     </div>

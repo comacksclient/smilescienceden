@@ -2,16 +2,34 @@
 import React from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { ScrollAnimation } from '@/components/ui/scroll-animation';
+import { ImageWithFallback } from '../figma/imagewirtfallback';
 
-
-const CareCard = ({ image, title, description }: { image: string, title: string, description: string }) => (
-  <div className="flex flex-col gap-4">
-    <div className="rounded-2xl overflow-hidden aspect-[4/3] w-full bg-gray-100">
-       
+const CareCard = ({ 
+  image, 
+  title, 
+  description, 
+  alt 
+}: { 
+  image: string, 
+  title: string, 
+  description: string, 
+  alt: string 
+}) => (
+  <div className="flex flex-col gap-5 group cursor-pointer">
+    <div className="rounded-[2rem] overflow-hidden aspect-[4/3] w-full bg-gray-100 relative">
+       <ImageWithFallback 
+         src={image}
+         alt={alt}
+         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+       />
+       {/* Premium dark gradient overlay on hover */}
+       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
     </div>
-    <div>
-        <h3 className="text-lg font-bold text-gray-900 mb-2">{title}</h3>
-        <p className="text-xs text-gray-500 leading-relaxed max-w-xs font-medium">
+    <div className="px-2">
+        <h3 className="text-2xl font-serif font-medium text-[#1A1A1A] mb-3 group-hover:text-[#1d5343] transition-colors">
+          {title}
+        </h3>
+        <p className="text-sm text-gray-500 leading-relaxed max-w-xs font-sans">
             {description}
         </p>
     </div>
@@ -20,49 +38,58 @@ const CareCard = ({ image, title, description }: { image: string, title: string,
 
 export const PersonalizedCare = () => {
   return (
-    <section className="bg-white px-6 md:px-12 py-24">
+    <section className="bg-white px-6 md:px-12 py-24 border-t border-gray-100">
       <ScrollAnimation>
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
         <div className="max-w-2xl">
-           <span className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 block">004 — Personalized Care</span>
-           <h2 className="text-4xl md:text-5xl font-serif font-medium text-gray-900 tracking-tight leading-tight">
-             We specialize in you, <br /> whatever your specialty
+           <div className="flex items-center gap-3 mb-4">
+              <span className="h-[1px] w-8 bg-[#1d5343]"></span>
+              <span className="text-xs font-bold text-[#1d5343] uppercase tracking-widest">
+                003 — Specialized Treatments
+              </span>
+           </div>
+           <h2 className="text-4xl md:text-5xl font-serif font-medium text-[#1A1A1A] tracking-tight leading-[1.15]">
+             Comprehensive care, <br /> 
+             <span className="text-gray-400 italic">tailored to your needs.</span>
            </h2>
         </div>
         
-        <div className="flex gap-4">
-            <button className="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors">
-                <ArrowLeft className="w-5 h-5 text-gray-500" />
-            </button>
-            <button className="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors">
-                <ArrowRight className="w-5 h-5 text-gray-500" />
-            </button>
-        </div>
+ 
       </div>
       </ScrollAnimation>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        
+        {/* Card 1: High Intent "Pain" Keyword */}
         <ScrollAnimation delay={0.1}>
         <CareCard 
-            image="https://images.unsplash.com/photo-1693692258834-74c62f467cb7?q=80&w=1080"
-            title="Reinforced Fillings"
-            description="We prioritize the longevity and functionality of our fillings, ensuring they offer a robust and lasting solution."
+            image="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1080"
+            title="Root Canal & Fillings"
+            alt="Painless root canal treatment Bangalore"
+            description="Save your natural teeth with our painless single-sitting Root Canal Treatments (RCT) and aesthetic tooth-colored fillings."
         />
         </ScrollAnimation>
+
+        {/* Card 2: High Intent "Family" Keyword */}
         <ScrollAnimation delay={0.2}>
         <CareCard 
-            image="https://images.unsplash.com/photo-1653508310729-7d6d2e2fd6c9?q=80&w=1080"
-            title="Vibrant Checkups"
-            description="At our dental practice, we understand that maintaining optimal oral health is essential for a radiant smile and overall well-being."
+            image="https://images.unsplash.com/photo-1571772996211-2f02c9727629?q=80&w=1080"
+            title="Pediatric Dentistry"
+            alt="Kids dentist electronic city"
+            description="Specialized dental care for children in a fear-free environment. From fluoride applications to habit breaking appliances."
         />
         </ScrollAnimation>
+
+        {/* Card 3: High Intent "Hygiene" Keyword */}
         <ScrollAnimation delay={0.3}>
         <CareCard 
-            image="https://images.unsplash.com/photo-1581585004042-bca38021ce1e?q=80&w=1080"
-            title="Revitalized Cleaning"
-            description="At our dental practice, we believe that regular dental cleaning is the cornerstone of a healthy and radiant smile."
+            image="https://images.unsplash.com/photo-1600170451864-d621b13175bd?q=80&w=1080"
+            title="Scaling & Polishing"
+            alt="Dental teeth cleaning and scaling service"
+            description="Remove stubborn plaque and stains with our advanced ultrasonic scaling. Essential for preventing gum disease and bad breath."
         />
         </ScrollAnimation>
+
       </div>
     </section>
   );

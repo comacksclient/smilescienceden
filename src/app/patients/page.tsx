@@ -9,7 +9,7 @@ export default function PatientsPage() {
     <div className="bg-[#FDFBF0]">
       <PatientsHero />
       <WhatToExpect />
-      <PatientForms />
+   
       <PatientPricing />
       <PatientSupport />
     </div>
