@@ -62,7 +62,7 @@ export const PersonalizedCare = () => {
         {/* Card 1: Root Canal (Image: Calm, Reassuring Professional Setting) */}
         <ScrollAnimation delay={0.1}>
         <CareCard 
-            image="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1280&auto=format&fit=crop"
+            image="https://images.unsplash.com/photo-1593022356769-11f762e25ed9?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cm9vdCUyMGNhbmFsc3xlbnwwfHwwfHx8MA%3D%3D"
             title="Root Canal & Fillings"
             alt="Painless root canal treatment Bangalore"
             description="Save your natural teeth with our painless single-sitting Root Canal Treatments (RCT) and aesthetic tooth-colored fillings."
@@ -72,7 +72,7 @@ export const PersonalizedCare = () => {
         {/* Card 2: Pediatric (Image: Happy Kid Brushing - Friendly Vibe) */}
         <ScrollAnimation delay={0.2}>
         <CareCard 
-            image="https://images.unsplash.com/photo-1571772996211-2f02c9727629?q=80&w=1280&auto=format&fit=crop"
+            image="https://images.unsplash.com/photo-1684607633251-8a4a8d94ddd2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8UGVkaWF0cmljJTIwRGVudGlzdHJ5fGVufDB8fDB8fHww"
             title="Pediatric Dentistry"
             alt="Kids dentist electronic city"
             description="Specialized dental care for children in a fear-free environment. From fluoride applications to habit breaking appliances."
@@ -82,7 +82,7 @@ export const PersonalizedCare = () => {
         {/* Card 3: Scaling/Hygiene (Image: Bright Clean Smile) */}
         <ScrollAnimation delay={0.3}>
         <CareCard 
-            image="https://images.unsplash.com/photo-1598256989494-02630b6dc7a4?q=80&w=1280&auto=format&fit=crop"
+            image="https://images.unsplash.com/photo-1663182234283-28941e7612da?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRlZXRofGVufDB8fDB8fHww"
             title="Scaling & Polishing"
             alt="Dental teeth cleaning and scaling service"
             description="Remove stubborn plaque and stains with our advanced ultrasonic scaling. Essential for preventing gum disease and bad breath."

@@ -11,7 +11,7 @@ images: {
       },
       {
         protocol: 'https',
-        hostname: 'plus.unsplash.com', // Sometimes Unsplash uses this domain too
+        hostname: 'plus.unsplash.com', 
         port: '',
         pathname: '/**',
       },

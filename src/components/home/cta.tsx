@@ -38,7 +38,7 @@ export const CTA = () => {
           <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
             
             {/* Primary Action */}
-            <a href="tel:08048903967">
+            <a href="/book">
               <Button className="group bg-white text-[#1d5343] rounded-full pl-8 pr-2 h-[64px] min-w-[240px] text-base font-semibold hover:bg-gray-100 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between">
                 <span className="ml-1">Book Appointment</span>
                 <div className="w-[48px] h-[48px] bg-[#1d5343] rounded-full flex items-center justify-center text-white group-hover:rotate-[-45deg] transition-transform duration-300">

@@ -72,7 +72,7 @@ export const OurWorks = () => {
         {/* Card 2: Veneers - Image: Close up perfect teeth */}
         <ScrollAnimation delay={0.2}>
           <WorkCard
-            image="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?q=80&w=1280&auto=format&fit=crop"
+            image="https://plus.unsplash.com/premium_photo-1702598533345-57ecc9b1992d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UG9yY2VsYWluJTIwVmVuZWVycyUyMGRlbnRhbHxlbnwwfHwwfHx8MA%3D%3D"
             title="Porcelain Veneers"
             description="Fix gaps, chips, and discoloration instantly with custom-crafted ceramic shells."
             alt="Cosmetic dentistry veneers"
@@ -82,7 +82,7 @@ export const OurWorks = () => {
         {/* Card 3: Implants - Image: Happy older adult */}
         <ScrollAnimation delay={0.3}>
           <WorkCard
-            image="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=1280&auto=format&fit=crop"
+            image="https://images.unsplash.com/photo-1598256989809-394fa4f6cd26?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8UGVybWFuZW50JTIwSW1wbGFudHMlMjBkZW50YWx8ZW58MHx8MHx8fDA%3D"
             title="Permanent Implants"
             description="Replace missing teeth with natural-looking, durable implants that last a lifetime."
             alt="Dental implant result"

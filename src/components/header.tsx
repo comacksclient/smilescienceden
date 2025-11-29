@@ -34,7 +34,7 @@ export const Header = () => {
     { label: "About us", path: "/about" },
     { label: "Book Appointment", path: "/book" },
     { label: "For Patients", path: "/patients" },
-    { label: "Contact", path: "/contact" },
+    { label: "Contact us", path: "/contact" },
   ];
 
   return (
@@ -53,33 +53,25 @@ export const Header = () => {
           <div className="flex items-center gap-8 xl:gap-14">
             
             {/* Logo Group */}
-            <Link href="/" className="flex items-center gap-1 group shrink-0">
-              <div className="relative w-14 h-14  flex items-center justify-center p-1.5 transition-transform duration-300 ">
+            <Link href="/" className="flex items-center  group shrink-0">
+              <div className="relative w-10 h-10  flex items-center justify-center p-0.5 transition-transform duration-300 ">
                 <Image 
                   src="/logo.png" 
                   alt="Smile Science Dental Clinic logo"
-                  width={48}
-                  height={48}
+                  width={36}
+                  height={36}
                   className="object-contain w-full h-full"
                 />
               </div>
               
-              {/* LOGO TEXT - Formatted exactly as requested */}
-              <div className="flex flex-col leading-none">
-                {/* 1. Script Font */}
-                <span className="text-[17px] font-serif italic text-[#1A1A1A] group-hover:text-[#1d5343] transition-colors translate-y-0.5" style={{ fontFamily: 'var(--font-playfair)' }}>
+             
+              <div className="text-[22px] font-serif italic text-[#1A1A1A] group-hover:text-[#1d5343] transition-colors translate-y-0.5" style={{ fontFamily: 'var(--font-playfair)' }}>
+               
+               
                   Smile Science
-                </span>
+               
                 
-                {/* 2. Big Uppercase Serif */}
-                <span className="text-[18px] font-bold tracking-[0.1em] text-[#1d5343] uppercase font-serif">
-                  DENTISTRY
-                </span>
-                
-                {/* 3. Small Slogan below */}
-                <span className="text-[8px] text-[#4B5563] tracking-wide font-medium italic -mt-0.7">
-                  Your Smile, Our Passion
-                </span>
+              
               </div>
             </Link>
 

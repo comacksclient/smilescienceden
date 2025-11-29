@@ -1,122 +1,126 @@
-import { ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button'; 
-import { ImageWithFallback } from '../figma/imagewirtfallback';
+"use client";
 
-// Star icon component
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ImageWithFallback } from "../figma/imagewirtfallback";
+
+// Star icon
 const StarIcon = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} xmlns="http://www.w3.org/2000/svg">
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
     <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
   </svg>
 );
 
 export const Hero = () => {
   return (
-    <section className="relative w-full min-h-screen bg-[#FDFBF0] overflow-hidden flex items-center pt-20 lg:pt-0">
-      
-      {/* Background Ambient Glows */}
-      <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-orange-50/40 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] left-[20%] w-[500px] h-[500px] bg-[#FFF8E7]/40 rounded-full blur-[100px] pointer-events-none" />
+   
+    <section className="relative w-full min-h-screen bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-[#FFFDF5] via-[#FDFBF0] to-[#F3EFE0] overflow-hidden flex items-center pt-24 lg:pt-0">
 
-      {/* --- MOBILE BACKGROUND IMAGE (Visible only on mobile) --- */}
-      {/* Positioned absolutely behind the text with a fade-out mask */}
-      <div className="absolute top-0 left-0 w-full h-[65vh] z-0 lg:hidden pointer-events-none">
-         <div 
-            className="relative w-full h-full"
-            style={{
-                // Fades from visible at top to transparent at bottom so text is readable
-                maskImage: 'linear-gradient(to bottom, black 0%, black 20%, transparent 100%)',
-                WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 20%, transparent 100%)'
-            }}
-         >
-              <ImageWithFallback 
-                 src="/img.jpeg" 
-                 alt="Smiling woman dental care"
-                 className="object-cover w-full h-full object-top opacity-60" // Lower opacity for background feel
-              />
-              {/* Warm overlay to blend with cream background */}
-              <div className="absolute inset-0 bg-[#FDFBF0] opacity-20 mix-blend-multiply"></div>
-         </div>
+    
+      <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-orange-100/40 rounded-full blur-[120px]" />
+      <div className="absolute bottom-[-10%] left-[20%] w-[500px] h-[500px] bg-[#FFF8E7]/60 rounded-full blur-[100px]" />
+
+    
+      <div className="absolute inset-0 w-full h-full lg:hidden z-0 pointer-events-none">
+        <ImageWithFallback
+          src="/img.jpeg"
+          alt="Dental clinic"
+         
+          className="object-cover w-full h-full opacity-90 mix-blend-multiply"
+        />
+       
+        <div className="absolute inset-0 bg-gradient-to-t from-[#FDFBF0] via-[#FDFBF0]/80 to-transparent" />
+   
+        <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent mix-blend-overlay" />
       </div>
 
-      <div className="w-full px-6 md:px-12 h-full flex flex-col lg:flex-row items-center relative z-20 py-12 lg:py-0">
+      <div className="w-full px-8 md:px-12 flex flex-col lg:flex-row items-center z-20 py-16">
+
+        {/* LEFT CONTENT */}
+        <div className="w-full lg:w-[50%] flex flex-col justify-center h-full pt-20 lg:pt-0 pl-[3px] relative">
+          
         
-        {/* --- LEFT SIDE CONTENT --- */}
-        <div className="w-full lg:w-[50%] relative z-30 flex flex-col justify-center h-full pt-32 lg:pt-0">
-          
-          {/* Decorative Elements */}
-          <div className="absolute -top-10 left-0 text-3xl text-gray-300/70 font-light hidden lg:block select-none">+</div>
-          <div className="absolute bottom-[-80px] left-[40%] text-2xl text-gray-300/70 font-light hidden lg:block select-none">+</div>
-          
-          {/* 1. Label */}
-          <div className="flex items-center gap-3 mb-8 pl-1">
+          <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[80%] h-[80%] bg-white/40 blur-3xl -z-10 rounded-full" />
+
+         
+          <div className="flex items-center gap-1 mb-6">
             <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1d5343] opacity-75"></span>
+          
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#1d5343]"></span>
             </span>
-            <span className="text-[9px] font-bold tracking-[0.25em] uppercase text-[#1d5343]/80 font-sans backdrop-blur-sm bg-white/30 px-2 py-1 rounded-full lg:bg-transparent lg:p-0">
-              Electronic City, Bangalore
+            {/* Glass effect added here */}
+            <span className="text-[10px] font-bold tracking-[0.1em] uppercase text-[#1d5343]    px-3 py-1.5 ">
+              Dental Care
             </span>
           </div>
 
-          {/* 2. Heading */}
-          <h1 className="text-4xl md:text-5xl lg:text-[4.2rem] font-serif font-medium text-[#0F172A] leading-[1.05] mb-8 tracking-[-0.02em]">
-            <span className="inline-flex items-center gap-3">
-              Achieve Your
-              <span className="text-5xl md:text-7xl lg:text-[5rem] drop-shadow-md filter grayscale-[0.2] transform -rotate-12">🦷</span>
+  {/* Heading */}
+          <h1 className="text-4xl md:text-5xl lg:text-[4rem] font-serif font-medium text-[#0F172A] leading-[1.1] mb-6 tracking-[-0.02em] drop-shadow-sm">
+            Your Smile,{" "}
+            
+            {/* WRAPPER: inline-block keeps it with text. */}
+            <span className="inline-block">
+              <img 
+                src="/tooth.png" 
+                alt="Tooth Icon" 
+                
+                className="w-12 h-12 md:w-16 md:h-16 lg:w-[4.5rem] lg:h-[4.5rem] object-contain -rotate-12 drop-shadow-md translate-y-2 md:translate-y-3 ml-1" 
+              />
             </span>
+            
             <br />
-            Desired <span className="italic text-[#0F172A] font-light">Smile</span>
+            Our <span className="italic font-light text-[#0F172A]">Science</span>
           </h1>
-
-          {/* 3. Paragraph */}
-          <p className="text-[#4B5563] text-md leading-[1.7] max-w-[500px] mb-12 font-sans font-medium lg:font-normal">
-            Your smile matters. Our experienced team provides painless, modern, and personalized dental care right here in Neeladri Nagar, Electronic City Phase 1, Bengaluru.
+          {/* Subtext */}
+          <p className="text-[#4B5563] text-[15px] leading-[1.7] max-w-[480px] mb-10 font-normal opacity-90">
+            Experience painless, modern, and personalized dental care with a specialist-led team in Neeladri Nagar, Electronic City Phase 1.
           </p>
 
-          {/* 4. Buttons */}
-          <div className="mb-8 lg:mb-0 flex flex-col sm:flex-row gap-6 items-start sm:items-center">
-            <a href="tel:08048903967">
-              <Button className="bg-[#1A1A1A] hover:bg-black text-white rounded-full pl-8 pr-2 py-1 h-[64px] transition-all duration-300 group flex items-center justify-between min-w-[220px] shadow-lg hover:shadow-xl hover:-translate-y-0.5">
-                <span className="font-medium tracking-wide text-md ml-1 font-sans">Book Appointment</span>
-                <div className="w-[48px] h-[48px] bg-white rounded-full flex items-center justify-center text-black group-hover:scale-105 transition-transform duration-300 ml-4">
-                  <ArrowRight className="w-5 h-5" />
+          {/* BUTTONS */}
+          <div className="flex gap-4">
+            <a href="/book">
+              <Button className="bg-[#1A1A1A] hover:bg-black text-white rounded-full pl-6 pr-2 h-[50px] text-sm tracking-wide flex items-center gap-3 shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-0.5 border border-white/10">
+                Book Now
+                <div className="w-[38px] h-[38px] bg-white rounded-full flex items-center justify-center text-black">
+                  <ArrowRight className="w-4 h-4" />
                 </div>
               </Button>
             </a>
           </div>
 
         </div>
-      </div>
 
-      {/* --- RIGHT SIDE IMAGE (Desktop Only) --- */}
-      <div className="absolute top-0 right-0 w-full lg:w-[60%] h-full z-10 pointer-events-none hidden lg:block">
-         <div 
+        {/* RIGHT IMAGE Desktop Only */}
+        <div className="absolute top-0 right-0 w-full lg:w-[58%] h-full hidden lg:block pointer-events-none">
+          <div
             className="relative w-full h-full"
             style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, black 30%, black 100%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 30%, black 100%)'
+              // Softened the black gradient to be slightly more transparent for better blending
+              maskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.8) 35%, black 100%)",
+              WebkitMaskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.8) 35%, black 100%)",
             }}
-         >
-              <ImageWithFallback 
-                 src="/img.jpeg" 
-                 alt="Smiling woman dental care"
-                 className="object-cover w-full h-full object-[center_35%] scale-105" 
-              />
-              {/* Texture Overlay */}
-              <div className="absolute inset-0 bg-[#FDFBF0] opacity-15 mix-blend-multiply"></div>
-              
-              {/* Decorative Stars */}
-              <div className="absolute top-[20%] right-[15%] text-[#1d5343]/30 animate-pulse delay-700">
-                <StarIcon size={24} />
-              </div>
-              <div className="absolute bottom-[30%] right-[10%] text-[#1d5343]/20">
-                <StarIcon size={18} />
-              </div>
-         </div>
+          >
+            <ImageWithFallback
+              src="/img.jpeg"
+              alt="Dental clinic"
+              className="object-cover w-full h-full object-[center_35%] scale-105 opacity-95 mix-blend-darken"
+            />
+
+            {/* Added a light overlay on top of the image to soften contrast */}
+            <div className="absolute inset-0 bg-[#FDFBF0] opacity-10 mix-blend-overlay" />
+
+            <div className="absolute top-[22%] right-[14%] text-[#1d5343]/30">
+              <StarIcon size={24} />
+            </div>
+            <div className="absolute bottom-[28%] right-[10%] text-[#1d5343]/20">
+              <StarIcon size={18} />
+            </div>
+          </div>
+        </div>
       </div>
-      
-      {/* --- BOTTOM GRADIENT --- */}
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#FDFBF0] to-transparent z-20 pointer-events-none" />
+
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#FDFBF0] to-transparent pointer-events-none" />
     </section>
   );
 };

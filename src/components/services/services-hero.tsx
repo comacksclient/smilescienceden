@@ -72,17 +72,7 @@ export const ServicesHero = () => {
                {/* Decorative Elements */}
                <div className="absolute -top-6 -right-6 w-24 h-24 bg-[#1d5343]/10 rounded-full blur-2xl -z-10" />
                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-orange-100/50 rounded-full blur-2xl -z-10" />
-               
-               {/* Floating Badge */}
-               <div className="absolute bottom-12 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-3 animate-bounce delay-1000 duration-[3000ms]">
-                  <div className="w-10 h-10 bg-[#1d5343]/10 rounded-full flex items-center justify-center text-[#1d5343]">
-                    <Sparkles className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-400 font-bold uppercase">Technology</p>
-                    <p className="text-sm font-serif font-medium text-[#1A1A1A]">Laser Precision</p>
-                  </div>
-               </div>
+             
             </div>
           </ScrollAnimation>
 
