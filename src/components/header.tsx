@@ -46,15 +46,14 @@ export const Header = () => {
             : 'py-5 bg-transparent'
         }`}
       >
-        {/* CHANGED: Removed max-w-[1400px] and mx-auto. Now it uses w-full to match the Hero section alignment perfectly. */}
         <div className="w-full px-6 md:px-12 flex items-center justify-between">
           
           {/* Left Group: Logo + Nav */}
           <div className="flex items-center gap-8 xl:gap-14">
             
             {/* Logo Group */}
-            <Link href="/" className="flex items-center  group shrink-0">
-              <div className="relative w-10 h-10  flex items-center justify-center p-0.5 transition-transform duration-300 ">
+            <Link href="/" className="flex items-center group shrink-0">
+              <div className="relative w-10 h-10 flex items-center justify-center p-0.5 transition-transform duration-300">
                 <Image 
                   src="/logo.png" 
                   alt="Smile Science Dental Clinic logo"
@@ -64,14 +63,8 @@ export const Header = () => {
                 />
               </div>
               
-             
-              <div className="text-[22px] font-serif italic text-[#1A1A1A] group-hover:text-[#1d5343] transition-colors translate-y-0.5" style={{ fontFamily: 'var(--font-playfair)' }}>
-               
-               
+              <div className="text-[22px] font-serif  text-[#1A1A1A] group-hover:text-[#1d5343] transition-colors translate-y-0.5" style={{ fontFamily: 'var(--font-playfair)' }}>
                   Smile Science
-               
-                
-              
               </div>
             </Link>
 
@@ -90,7 +83,6 @@ export const Header = () => {
                                 `}
                             >
                                 {item.label}
-                                {/* Underline Hover Effect */}
                                 <span className={`
                                   absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-[#1d5343] transition-all duration-300 ease-out
                                   ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}
@@ -112,7 +104,7 @@ export const Header = () => {
                <span className="tracking-wide font-sans">+91 62067 00442</span>
             </a>
 
-            {/* Chat Us Button - Dark Green */}
+            {/* Chat Us Button - Desktop */}
             <a 
               href="https://wa.me/916206700442?text=Hi%20Smile%20Science,%20I%20would%20like%20to%20book%20an%20appointment."
               target="_blank"
@@ -123,18 +115,20 @@ export const Header = () => {
               <span>Chat Us</span>
             </a>
 
-            {/* Mobile Actions */}
-            <div className="lg:hidden flex items-center gap-3">
+            {/* Mobile Actions - Buttons made smaller here */}
+            <div className="lg:hidden flex items-center gap-2">
               <a 
                 href="https://wa.me/916206700442" 
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-[#1d5343] text-white shadow-md active:scale-95 transition-transform"
+                // CHANGED: w-10 h-10 -> w-9 h-9
+                className="w-9 h-9 flex items-center justify-center rounded-full bg-[#1d5343] text-white shadow-md active:scale-95 transition-transform"
               >
                 <WhatsAppIcon />
               </a>
               
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-white border border-gray-200 text-[#1A1A1A] active:scale-95 transition-transform hover:bg-gray-50"
+                // CHANGED: w-10 h-10 -> w-9 h-9
+                className="w-9 h-9 flex items-center justify-center rounded-full bg-white border border-gray-200 text-[#1A1A1A] active:scale-95 transition-transform hover:bg-gray-50"
               >
                 {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
@@ -169,17 +163,11 @@ export const Header = () => {
           </nav>
 
           <div className="mt-auto space-y-3 mb-4">
-             <a 
-              href="https://wa.me/916206700442?text=Hi%20Smile%20Science"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full bg-[#1d5343] text-white h-12 rounded-xl text-lg font-bold shadow-lg hover:bg-[#153e32]"
-            >
-              <WhatsAppIcon /> Chat on WhatsApp
-            </a>
+            
 
             <a href="tel:08048903967" className="block">
-              <Button className="w-full bg-[#1A1A1A] hover:bg-black text-white h-12 rounded-xl text-lg font-medium shadow-xl flex items-center justify-center gap-2">
+              {/* CHANGED: h-12 -> h-11 */}
+              <Button className="w-[80%] bg-[#1A1A1A] hover:bg-black text-white h-11 rounded-xl text-lg font-medium shadow-xl flex items-center justify-center gap-2">
                 <Phone className="w-5 h-5 fill-current" /> Call Clinic
               </Button>
             </a>

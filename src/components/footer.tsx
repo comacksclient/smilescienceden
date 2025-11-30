@@ -41,7 +41,7 @@ export const Footer = () => {
            {/* --- COLUMN 1: BRAND & SOCIALS --- */}
            <div className="space-y-6">
               {/* Logo */}
-              <Link href="/" className="flex items-center gap-3 group w-fit">
+              <Link href="/" className="flex items-center gap-1 group w-fit">
                 <div className="relative w-8 h-8">
                   <Image 
                     src="/logo.png" 
@@ -135,8 +135,12 @@ export const Footer = () => {
                  <div className="flex gap-3 items-start">
                     <Phone className="w-5 h-5 text-[#1d5343] shrink-0 mt-0.5" />
                     <div className="space-y-1">
+                      
                        <a href="tel:+916206700442" className="text-[#4B5563] hover:text-[#1d5343] transition-colors text-sm font-medium block">
                           +91 62067 00442
+                       </a>
+                       <a href="tel:+919429004884" className="text-[#4B5563] hover:text-[#1d5343] transition-colors text-sm font-medium block">
+                          +91 94290 04884
                        </a>
                     </div>
                  </div>

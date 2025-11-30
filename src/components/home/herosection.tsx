@@ -13,64 +13,55 @@ const StarIcon = ({ size = 24, className = "" }: { size?: number; className?: st
 
 export const Hero = () => {
   return (
-   
     <section className="relative w-full min-h-screen bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-[#FFFDF5] via-[#FDFBF0] to-[#F3EFE0] overflow-hidden flex items-center pt-24 lg:pt-0">
 
-    
+      {/* Ambient background */}
       <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-orange-100/40 rounded-full blur-[120px]" />
       <div className="absolute bottom-[-10%] left-[20%] w-[500px] h-[500px] bg-[#FFF8E7]/60 rounded-full blur-[100px]" />
 
-    
+      {/* Mobile BG image */}
       <div className="absolute inset-0 w-full h-full lg:hidden z-0 pointer-events-none">
         <ImageWithFallback
           src="/img.jpeg"
           alt="Dental clinic"
-         
-          className="object-cover w-full h-full opacity-90 mix-blend-multiply"
+          className="object-cover w-full h-full  "
         />
-       
         <div className="absolute inset-0 bg-gradient-to-t from-[#FDFBF0] via-[#FDFBF0]/80 to-transparent" />
-   
         <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent mix-blend-overlay" />
       </div>
 
       <div className="w-full px-8 md:px-12 flex flex-col lg:flex-row items-center z-20 py-16">
 
         {/* LEFT CONTENT */}
-        <div className="w-full lg:w-[50%] flex flex-col justify-center h-full pt-20 lg:pt-0 pl-[3px] relative">
+        {/* UPDATED: Changed 'pt-20' to 'pt-6' to shift text UP in mobile view */}
+        <div className="w-full lg:w-[50%] flex flex-col justify-center h-full pt-6 lg:pt-0 pl-[3px] relative">
           
-        
           <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[80%] h-[80%] bg-white/40 blur-3xl -z-10 rounded-full" />
 
-         
-          <div className="flex items-center gap-1 mb-6">
+          <div className="flex items-center gap-1 mb-1 ml-1">
             <span className="relative flex h-2.5 w-2.5">
-          
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#1d5343]"></span>
             </span>
-            {/* Glass effect added here */}
-            <span className="text-[10px] font-bold tracking-[0.1em] uppercase text-[#1d5343]    px-3 py-1.5 ">
+            <span className="text-[10px] font-bold tracking-[0.1em] uppercase text-[#1d5343] px-3 py-1.5 ">
               Dental Care
             </span>
           </div>
 
-  {/* Heading */}
+          {/* Heading */}
           <h1 className="text-4xl md:text-5xl lg:text-[4rem] font-serif font-medium text-[#0F172A] leading-[1.1] mb-6 tracking-[-0.02em] drop-shadow-sm">
             Your Smile,{" "}
-            
-            {/* WRAPPER: inline-block keeps it with text. */}
+            {/* WRAPPER */}
             <span className="inline-block">
               <img 
                 src="/tooth.png" 
                 alt="Tooth Icon" 
-                
                 className="w-12 h-12 md:w-16 md:h-16 lg:w-[4.5rem] lg:h-[4.5rem] object-contain -rotate-12 drop-shadow-md translate-y-2 md:translate-y-3 ml-1" 
               />
             </span>
-            
             <br />
-            Our <span className="italic font-light text-[#0F172A]">Science</span>
+            Our <span className=" font-light text-[#0F172A]">Science</span>
           </h1>
+
           {/* Subtext */}
           <p className="text-[#4B5563] text-[15px] leading-[1.7] max-w-[480px] mb-10 font-normal opacity-90">
             Experience painless, modern, and personalized dental care with a specialist-led team in Neeladri Nagar, Electronic City Phase 1.
@@ -95,7 +86,6 @@ export const Hero = () => {
           <div
             className="relative w-full h-full"
             style={{
-              // Softened the black gradient to be slightly more transparent for better blending
               maskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.8) 35%, black 100%)",
               WebkitMaskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.8) 35%, black 100%)",
             }}
@@ -103,12 +93,9 @@ export const Hero = () => {
             <ImageWithFallback
               src="/img.jpeg"
               alt="Dental clinic"
-              className="object-cover w-full h-full object-[center_35%] scale-105 opacity-95 mix-blend-darken"
+              className="object-cover w-full h-full object-[center_35%] scale-105  "
             />
-
-            {/* Added a light overlay on top of the image to soften contrast */}
             <div className="absolute inset-0 bg-[#FDFBF0] opacity-10 mix-blend-overlay" />
-
             <div className="absolute top-[22%] right-[14%] text-[#1d5343]/30">
               <StarIcon size={24} />
             </div>

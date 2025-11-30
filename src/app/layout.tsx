@@ -18,12 +18,11 @@ const manrope = Manrope({
   display: "swap",
 });
 
-
-const siteUrl = "https://www.smilesciencedentalclinic.com";
+const siteUrl = "https://smilescience.in/";
 const clinicName = "Smile Science Dental Clinic";
 
-const clinicDescription = 
-  "Smile Science Dental Clinic — the most trusted dentist in Electronic City Phase 1 and Neeladri Layout. Specialists in painless Root Canal Treatment (RCT), Dental Implants, Cosmetic Dentistry, Smile Designing, Invisalign Aligners, and Emergency Dental Care. 4.8★ rated clinic with expert dentists and advanced technology.";
+const clinicDescription =
+  "Smile Science Dental Clinic — the most trusted dentist in Electronic City Phase 1 and Neeladri Layout. Experts in painless Root Canal Treatment (RCT), Dental Implants, Clear Aligners, Invisalign, Smile Designing, Teeth Cleaning, Child Dentistry, Braces, and Emergency Dental Care. Rated 4.8★ with advanced technology and specialist dentists.";
 
 export const viewport: Viewport = {
   themeColor: "#FDFBF7",
@@ -32,37 +31,41 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
-// ====================================
-// 🔥 MOST POWERFUL SEO METADATA
-// ====================================
+
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${clinicName} | Best Dentist in Electronic City Phase 1`,
+    default: `${clinicName} | Best Dentist in Electronic City`,
     template: `%s | ${clinicName}`,
   },
   description: clinicDescription,
+
   keywords: [
-    "Best dentist in Electronic City",
-    "Dentist in Electronic City Phase 1",
+    "Dentist in Electronic City",
+    "Best dentist in Electronic City Phase 1",
     "Dental Clinic Neeladri Layout",
     "Root Canal Specialist Electronic City",
-    "Painless Root Canal Bangalore",
+    "Painless RCT Bangalore",
     "Dental Implants Electronic City",
-    "Invisalign Aligners Bangalore",
-    "Smile Designing in Electronic City",
+    "Clear Aligners Electronic City",
     "Cosmetic Dentist Electronic City",
+    "Dental Braces Electronic City",
+    "Teeth Cleaning in Electronic City",
+    "Smile Designing Electronic City",
     "Emergency Dentist Near Me",
-    "Teeth Cleaning Electronic City",
     "Smile Science Dental Clinic",
-    "Best Dental Clinic in Electronic City",
   ],
-  authors: [{ name: "Dr. Pranjal" }],
+
+  alternates: {
+    canonical: siteUrl,
+  },
+
+  authors: [{ name: "Smile Science Dental Clinic" }],
   creator: clinicName,
 
   openGraph: {
-    title: `Smile Science Dental Clinic | Expert Dentists in Electronic City`,
+    title: `Smile Science Dental Clinic | Best Dentist in Electronic City`,
     description: clinicDescription,
     url: siteUrl,
     siteName: clinicName,
@@ -80,8 +83,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: `${clinicName} | Leading Dental Clinic in Electronic City`,
+    title: `${clinicName} | Expert Dentist in Electronic City`,
     description: clinicDescription,
+    images: [`${siteUrl}/og-image.jpg`],
   },
 
   robots: {
@@ -97,9 +101,7 @@ export const metadata: Metadata = {
   },
 };
 
-// =============================
-// 🔥 UPDATED STRUCTURED DATA
-// =============================
+
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
@@ -107,7 +109,7 @@ const localBusinessSchema = {
   "@id": siteUrl,
   "name": clinicName,
   "description":
-    "Smile Science Dental Clinic offers painless dental treatments including Root Canal Treatment, Dental Implants, Orthodontics, Invisalign, and Smile Makeovers in Electronic City Phase 1.",
+    "Smile Science Dental Clinic provides painless Root Canal Treatment, Dental Implants, Clear Aligners, Braces, Kids Dentistry, Cosmetic Dentistry, and Smile Makeovers in Electronic City Phase 1.",
   "image": [
     `${siteUrl}/clinic-exterior.jpg`,
     `${siteUrl}/clinic-interior.jpg`,
@@ -119,7 +121,7 @@ const localBusinessSchema = {
   "priceRange": "₹₹",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "4th Floor, 224, 3rd Cross Road, Neeladri Nagar, Above ICICI Bank",
+    "streetAddress": "Neeladri Nagar, Above ICICI Bank",
     "addressLocality": "Electronic City Phase 1",
     "addressRegion": "Karnataka",
     "postalCode": "560100",
@@ -130,7 +132,7 @@ const localBusinessSchema = {
     "latitude": "12.8438",
     "longitude": "77.6637",
   },
-  "hasMap": "https://maps.app.goo.gl/YourGoogleMapsLink",
+  "hasMap": "https://maps.app.goo.gl/",
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
@@ -140,16 +142,16 @@ const localBusinessSchema = {
         "Wednesday",
         "Thursday",
         "Friday",
-        "Saturday"
+        "Saturday",
       ],
       "opens": "10:00",
-      "closes": "20:30",
+      "closes": "20:00",
     },
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": "Sunday",
       "opens": "10:00",
-      "closes": "14:00",
+      "closes": "17:00",
     },
   ],
   "aggregateRating": {
@@ -166,17 +168,17 @@ const localBusinessSchema = {
     "Implant Dentistry",
   ],
   "sameAs": [
-    "https://www.facebook.com/smilescience",
-    "https://www.instagram.com/smilescience",
-    "https://www.linkedin.com/company/smilescience",
+    "https://www.instagram.com/",
+    "https://www.facebook.com/",
+    "https://www.linkedin.com/",
   ],
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" className="scroll-smooth">
       <body
@@ -190,7 +192,7 @@ export default function RootLayout({
           selection:bg-[#1A3C34] selection:text-[#FDFBF7]
         `}
       >
-        {/* JSON-LD Schema */}
+        {/* JSON-LD Structured Data */}
         <Script id="ld-json" type="application/ld+json">
           {JSON.stringify(localBusinessSchema)}
         </Script>

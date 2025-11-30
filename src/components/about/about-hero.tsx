@@ -56,7 +56,7 @@ export const About = () => {
               <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden bg-gray-200 border-8 border-white shadow-xl relative z-10">
                 {/* Replace with Dr. Pranjal's Real Photo */}
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1080" 
+                  src="/" 
                   alt="Dr. Pranjal - Best Dentist in Electronic City"
                   className="w-full h-full object-cover"
                 />

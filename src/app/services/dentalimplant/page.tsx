@@ -201,14 +201,14 @@ export default function DentalImplantsPage() {
                Schedule your consultation today and take the first step towards confidence.
              </p>
              
-             <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
-               <a href="tel:08048903967">
-                 <Button className="h-14 px-8 rounded-full bg-white text-[#1d5343] hover:bg-gray-100 transition-all font-bold flex items-center gap-2">
+             <div className="relative z-10 flex flex-col items-stretch gap-4 justify-center sm:flex-row sm:items-center">
+               <a href="tel:08048903967" className="w-full sm:w-auto">
+                 <Button className="h-14 w-full rounded-full bg-white text-[#1d5343] transition-all hover:bg-gray-100 flex items-center justify-center gap-2 font-bold sm:w-auto sm:px-8">
                    <Phone className="w-4 h-4 fill-current" /> Call 080 4890 3967
                  </Button>
                </a>
-               <Link href="/book">
-                 <Button variant="outline" className="h-14 px-8 rounded-full border border-white/30 text-white hover:bg-white/10 transition-all font-medium">
+               <Link href="/book" className="w-full sm:w-auto">
+                 <Button variant="outline" className="h-14 w-full rounded-full border border-white/30 text-white transition-all hover:bg-white/10 font-medium sm:w-auto sm:px-8">
                    Book Online
                  </Button>
                </Link>

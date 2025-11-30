@@ -1,7 +1,9 @@
+
 "use client";
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, User } from 'lucide-react';
 import { Button } from './ui/button';
+import { useRouter } from 'next/navigation';
 
 // WhatsApp Icon
 const WhatsAppIcon = () => (
@@ -20,6 +22,7 @@ interface Message {
 }
 
 export const Chatbot = () => {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -53,15 +56,17 @@ export const Chatbot = () => {
     }
   }, [isOpen]);
 
-  const handleSendMessage = async (text: string, isSystemMessage = false) => {
-    if (!text.trim()) return;
+  // UPDATED: Added apiPayload to support hidden intents
+  const handleSendMessage = async (displayText: string, isSystemMessage = false, apiPayload?: string) => {
+    if (!displayText.trim()) return;
 
+    // 1. Show the USER friendly text in the UI (e.g., "Book Appointment")
     if (!isSystemMessage) {
       const userMsg: Message = { 
         id: Date.now().toString(), 
         sender: 'user', 
         type: 'text', 
-        text 
+        text: displayText 
       };
       setMessages(prev => [...prev, userMsg]);
     }
@@ -74,10 +79,13 @@ export const Chatbot = () => {
         .filter(m => m.type === 'text')
         .map(m => `${m.sender === 'user' ? 'User' : 'Assistant'}: ${m.text}`);
 
+      // 2. Send the SYSTEM payload to the API if it exists (e.g., "ACTION_NAVIGATE_BOOKING")
+      const messageToSend = apiPayload || displayText;
+
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: text, history }),
+        body: JSON.stringify({ message: messageToSend, history }),
       });
 
       const data = await response.json();
@@ -108,7 +116,33 @@ export const Chatbot = () => {
   };
 
   const handleOptionClick = (payload: string, label: string) => {
-    handleSendMessage(payload === "ACTION_TRIGGER_BOOKING" ? "ACTION_TRIGGER_BOOKING" : label);
+    // Case 1: Internal Route - Navigate immediately, don't chat
+    if (payload.startsWith('/')) {
+      setIsOpen(false);
+      router.push(payload);
+      return;
+    }
+
+    // Case 2: External Link
+    if (payload.startsWith('http')) {
+      window.open(payload, '_blank');
+      return;
+    }
+
+    // Case 3: Phone
+    if (payload.startsWith('tel:')) {
+      window.location.href = payload;
+      return;
+    }
+
+    // Case 4: Chat Actions
+    // Send 'label' to be displayed in UI ("Book Appointment")
+    // Send 'payload' to be processed by Backend ("ACTION_NAVIGATE_BOOKING")
+    if (payload.startsWith('ACTION_')) {
+      handleSendMessage(label, false, payload);
+    } else {
+      handleSendMessage(label);
+    }
   };
 
   const renderMessageContent = (msg: Message) => {
@@ -129,7 +163,6 @@ export const Chatbot = () => {
                   <button
                     key={idx}
                     onClick={() => handleOptionClick(btn.payload, btn.label)}
-                    // CHANGED: Fixed Green buttons to Black
                     className="text-xs bg-[#18181B] text-white px-3 py-2 rounded-md hover:bg-black transition-colors flex-grow text-center active:scale-95"
                   >
                     {btn.label}
@@ -153,7 +186,6 @@ export const Chatbot = () => {
             >
               <input type="text" placeholder="Your Name" className="w-full text-base md:text-xs p-3 md:p-2 rounded border border-gray-200 bg-gray-50 focus:ring-1 focus:ring-gray-500 outline-none" required />
               <input type="tel" placeholder="Phone Number" className="w-full text-base md:text-xs p-3 md:p-2 rounded border border-gray-200 bg-gray-50 focus:ring-1 focus:ring-gray-500 outline-none" required />
-              {/* CHANGED: Fixed Green button to Black */}
               <button type="submit" className="w-full bg-[#18181B] text-white text-sm py-3 md:py-2 rounded hover:bg-black font-medium active:scale-95 transition-transform">
                 Confirm Appointment
               </button>
@@ -194,11 +226,13 @@ export const Chatbot = () => {
           absolute bottom-20 right-0
           w-[calc(100vw-48px)] md:w-[380px]
           bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden flex flex-col 
+          
+          /* CHANGED: Restored original height logic */
           max-h-[85vh] h-[600px]
         `}
       >
         
-        {/* Header - CHANGED: Fixed Green header to Black */}
+        {/* Header */}
         <div className="bg-[#18181B] p-4 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">
             <div className="relative">
@@ -227,10 +261,8 @@ export const Chatbot = () => {
               key={msg.id} 
               className={`flex w-full ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
             >
-               {/* Message Row with Avatar */}
                <div className={`flex max-w-[85%] gap-2 ${msg.sender === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
                   
-                  {/* Avatar Circle */}
                   <div className={`
                     w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center overflow-hidden border
                     ${msg.sender === 'user' ? 'bg-[#18181B] border-[#18181B] text-white' : 'bg-white border-gray-200'}
@@ -242,7 +274,6 @@ export const Chatbot = () => {
                      )}
                   </div>
 
-                  {/* Message Bubble */}
                   <div className="flex flex-col gap-1">
                      <div 
                         className={`
@@ -255,7 +286,6 @@ export const Chatbot = () => {
                      >
                         {renderMessageContent(msg)}
                      </div>
-                     {/* Timestamp/Label */}
                      <span className={`text-[10px] text-gray-400 ${msg.sender === 'user' ? 'text-right' : 'text-left ml-1'}`}>
                         {msg.sender === 'user' ? 'You' : 'Smile Science Dentistry'}
                      </span>
@@ -264,7 +294,6 @@ export const Chatbot = () => {
             </div>
           ))}
 
-          {/* Typing Indicator */}
           {isLoading && (
             <div className="flex w-full justify-start">
                <div className="flex max-w-[85%] gap-2 flex-row">
@@ -282,7 +311,7 @@ export const Chatbot = () => {
           <div ref={messagesEndRef} />
         </div>
 
-        {/* Input Area & Powered By Link */}
+        {/* Input Area */}
         <div className="bg-white border-t border-gray-100 shrink-0">
           <div className="p-3">
             <form 
@@ -310,7 +339,6 @@ export const Chatbot = () => {
             </form>
           </div>
           
-          {/* Powered By Link */}
           <div className="pb-2 text-center">
             <a 
               href="https://comacks.com" 
@@ -324,7 +352,6 @@ export const Chatbot = () => {
         </div>
       </div>
 
-      {/* WhatsApp Button */}
       <div className={`transition-all duration-300 ${isOpen ? 'translate-y-4 opacity-0 pointer-events-none' : 'translate-y-0 opacity-100'}`}>
         <a 
           href="https://wa.me/916206700442"
@@ -337,7 +364,6 @@ export const Chatbot = () => {
         </a>
       </div>
 
-      {/* Floating Chat Toggle Button */}
       <Button 
         onClick={() => setIsOpen(!isOpen)}
         className="w-16 h-16 rounded-full bg-[#18181B] hover:bg-black text-white shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)] transition-all hover:scale-105 flex items-center justify-center z-[100]"

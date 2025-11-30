@@ -128,15 +128,15 @@ export default function DenturesPage() {
           <div className="max-w-[800px] mx-auto text-center text-white">
             <h2 className="text-3xl font-serif font-medium mb-4">Get Your Custom Dentures</h2>
             <p className="text-white/80 mb-8">Schedule a consultation to discuss your denture options and find the perfect solution.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:08048903967">
-                <Button className="h-12 px-8 rounded-full bg-white text-[#1d5343] hover:bg-gray-100 transition-all font-bold flex items-center gap-2">
+            <div className="flex flex-col items-stretch gap-4 justify-center sm:flex-row sm:items-center">
+              <a href="tel:08048903967" className="w-full sm:w-auto">
+                <Button className="h-12 w-full rounded-full bg-white text-[#1d5343] transition-all hover:bg-gray-100 flex items-center justify-center gap-2 font-bold sm:w-auto sm:px-8">
                   <Phone className="w-4 h-4 fill-current" /> Call Now
                 </Button>
               </a>
-              <Link href="/book">
-                <Button variant="outline" className="h-12 px-8 rounded-full border border-white/30 text-white hover:bg-white/10 transition-all font-medium">
-                  Book Appointment
+              <Link href="/book" className="w-full sm:w-auto">
+                <Button variant="outline" className="h-12 w-full rounded-full border border-white/30 text-white transition-all hover:bg-white/10 font-medium sm:w-auto sm:px-8">
+                  Book Online
                 </Button>
               </Link>
             </div>

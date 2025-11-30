@@ -16,7 +16,7 @@ const DOCTORS_DB = {
     name: "Dr. Pranjal",
     specialty: "General Dentist",
     // Ensure image URLs are valid or use reliable placeholders in production
-    image_url: "https://img.freepik.com/free-photo/portrait-smiling-handsome-male-doctor-man_171337-5055.jpg",
+    image_url: "/",
     short_bio: "Friendly general dentist focused on patient comfort, preventive care, and painless treatments.",
   }
 };
