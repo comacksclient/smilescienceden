@@ -64,7 +64,7 @@ export const Hero = () => {
 
           {/* Subtext */}
           <p className="text-[#4B5563] text-[15px] leading-[1.7] max-w-[480px] mb-10 font-normal opacity-90">
-            Experience painless, modern, and personalized dental care with a specialist-led team in Neeladri Nagar, Electronic City Phase 1.
+          Trusted specialist dentists in Neeladri Nagar, Electronic City Phase 1 , offering painless and advanced dental treatments for every smile.
           </p>
 
           {/* BUTTONS */}

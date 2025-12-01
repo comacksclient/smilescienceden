@@ -3,276 +3,301 @@
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
 import { Button } from "@/components/ui/button";
 import { 
-  CheckCircle2, 
-  ArrowRight, 
-  ShieldCheck, 
-  Clock, 
-  Smile, 
   Phone,
-  Award,
-  Zap,
-  Heart,
-  Building2
+  MapPin,
+  Clock,
+  CheckCircle2,
+  ShieldCheck,
+  Star,
+  Activity,
+  MessageCircle,
+  User,
+  Zap
 } from "lucide-react";
 import Link from "next/link";
 
 export default function RootCanalPage() {
   return (
-    <div className="bg-[#FDFBF0] min-h-screen font-sans">
+    <div className="bg-[#FDFBF0] min-h-screen font-sans pb-32 md:pb-0">
       
-      {/* --- HERO SECTION --- */}
-      <section className="relative pt-32 pb-20 px-6 md:px-12 overflow-hidden">
-        <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-[#1d5343]/5 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-orange-100/50 rounded-full blur-[100px] pointer-events-none" />
+      {/* --- 📱 STICKY MOBILE FOOTER (Clean & Professional) --- */}
+      <div className="fixed bottom-0 left-0 right-0 z-[100] bg-white/95 backdrop-blur-md border-t border-gray-200 p-4 md:hidden shadow-[0_-5px_20px_rgba(0,0,0,0.05)] safe-area-pb">
+        <div className="flex items-center justify-between gap-4 max-w-sm mx-auto">
+          {/* Left: Status */}
+          <a 
+            href="https://wa.me/918048903967?text=Hi%20Dr.%20Pranjal,%20I%E2%80%99m%20in%20pain%20and%20need%20an%20emergency%20appointment.%20When%20is%20your%20earliest%20slot?" 
+            className="flex flex-col flex-1"
+          >
+            <span className="text-sm font-bold text-[#1d5343] flex items-center gap-2">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-600"></span>
+              </span>
+              Emergency: OPEN
+            </span>
+            <span className="text-[10px] text-gray-500 font-medium ml-4">Reply time: ~40 sec</span>
+          </a>
+          
+          {/* Right: Call Button */}
+          <a href="tel:08048903967">
+            <Button 
+              className="bg-[#1d5343] hover:bg-[#153e32] text-white rounded-full px-6 h-12 text-xs font-bold shadow-lg flex items-center gap-2"
+              aria-label="Call doctor now"
+            >
+              CALL DOCTOR
+            </Button>
+          </a>
+        </div>
+      </div>
 
-        <div className="max-w-[1200px] mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      {/* --- 🦷 HERO SECTION --- */}
+      <section className="relative pt-24 pb-16 px-6 md:px-12 overflow-hidden">
+        
+        <div className="max-w-[600px] lg:max-w-[1200px] mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <ScrollAnimation>
             <div>
-              <div className="inline-flex items-center gap-2 mb-6 bg-white/50 border border-[#1d5343]/10 px-4 py-1.5 rounded-full">
-                 <span className="relative flex h-2 w-2">
-                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1d5343] opacity-75"></span>
-                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1d5343]"></span>
-                 </span>
-                 <span className="text-[11px] font-bold tracking-widest uppercase text-[#1d5343]">
-                   Root Canal Treatment in Bangalore
+              {/* Premium Location Pill (Matches Image) */}
+              <div className="w-full bg-[#f0e4d4] rounded-full py-3 px-5 mb-8 flex items-start gap-3 border border-[#e6d8c6]">
+                 <MapPin className="w-4 h-4 text-[#cf4646] mt-0.5 shrink-0" />
+                 <span className="text-[11px] md:text-xs font-bold tracking-wide uppercase text-[#5a4a3a] leading-tight">
+                   JUST 500M FROM WIPRO GATE — NO TRAFFIC, NO WAIT
                  </span>
               </div>
               
-              <h1 className="text-4xl md:text-6xl font-serif font-medium text-[#1A1A1A] mb-6 tracking-tight leading-[1.1]">
-                Save Your Tooth <br/>
-                <span className="italic text-[#1d5343]">Painlessly.</span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium text-[#1A1A1A] mb-6 tracking-tight leading-[1.15]">
+                Severe Tooth Pain? <br/>
+                <span className="text-[#1d5343]">We Stop It Within 60 Minutes.</span>
               </h1>
               
-              <p className="text-[#4B5563] text-lg leading-relaxed mb-8 font-light max-w-lg">
-                At <strong>Smile Science Dental Clinic</strong>, we understand tooth pain can be debilitating. Our expert endodontists perform precise, painless root canal treatments using advanced microscope-assisted techniques to save your natural tooth.
-              </p>
+              <h2 className="text-lg text-gray-600 font-light mb-10 leading-relaxed max-w-md">
+                Painless, Single-Sitting Root Canal Treatment in Neeladri Nagar.
+              </h2>
+              
+              {/* PAIN SCALE CARD (Exact Match to Image) */}
+              <div className="bg-white p-6 md:p-8 rounded-[2rem] shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-gray-100 mb-10">
+                <p className="font-bold text-[#1A1A1A] mb-6 flex items-center gap-3 text-lg">
+                  <Activity className="w-6 h-6 text-orange-400"/> How bad is your pain right now?
+                </p>
+                
+                <div className="flex flex-col gap-4">
+                  {/* Mild - Soft Yellow */}
+                  <a href="https://wa.me/918048903967?text=Hi%20Dr.%20Pranjal,%20I%20have%20mild%20tooth%20pain." target="_blank" className="w-full">
+                    <div className="relative group cursor-pointer bg-[#FFF9E6] hover:bg-[#fff5d6] rounded-2xl p-4 text-center transition-all border border-[#faeebf]">
+                      <div className="w-4 h-4 rounded-full bg-[#FCD34D] mx-auto mb-2 shadow-sm"></div>
+                      <span className="font-bold text-[#854D0E] text-sm group-hover:scale-105 inline-block transition-transform">Mild</span>
+                    </div>
+                  </a>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/book">
-                  <Button className="h-14 px-8 rounded-full bg-[#1A1A1A] text-white hover:bg-[#1d5343] transition-all shadow-lg hover:shadow-xl flex items-center gap-2 text-base font-medium">
-                    Book Appointment
-                    <ArrowRight className="w-4 h-4" />
-                  </Button>
-                </Link>
-                <Link href="/contact">
-                  <Button variant="outline" className="h-14 px-8 rounded-full border border-[#1A1A1A]/10 text-[#1A1A1A] hover:bg-white transition-all flex items-center gap-2 text-base font-medium">
-                    Contact Us
-                  </Button>
-                </Link>
+                  {/* Throbbing - Soft Orange */}
+                  <a href="https://wa.me/918048903967?text=Hi%20Dr.%20Pranjal,%20I%20have%20throbbing%20tooth%20pain." target="_blank" className="w-full">
+                    <div className="relative group cursor-pointer bg-[#FFF0E0] hover:bg-[#ffe6cc] rounded-2xl p-4 text-center transition-all border border-[#fddbb5]">
+                       <div className="w-4 h-4 rounded-full bg-[#F97316] mx-auto mb-2 shadow-sm"></div>
+                      <span className="font-bold text-[#9A3412] text-sm group-hover:scale-105 inline-block transition-transform">Throbbing</span>
+                    </div>
+                  </a>
+
+                  {/* Unbearable - Soft Pink/Red (No Harsh Red) */}
+                  <a href="https://wa.me/918048903967?text=Hi%20Dr.%20Pranjal,%20I%E2%80%99m%20in%20UNBEARABLE%20pain." target="_blank" className="w-full">
+                    <div className="relative group cursor-pointer bg-[#FFF0F0] hover:bg-[#ffe0e0] rounded-2xl p-4 text-center transition-all border border-[#fecaca]">
+                       <div className="w-4 h-4 rounded-full bg-[#EF4444] mx-auto mb-2 shadow-sm animate-pulse"></div>
+                      <span className="font-bold text-[#991B1B] text-sm group-hover:scale-105 inline-block transition-transform">Unbearable</span>
+                    </div>
+                  </a>
+                </div>
               </div>
+
+              {/* Trust Indicators */}
+              <div className="flex flex-col gap-2 mb-8 text-sm font-medium text-gray-700">
+                 <div className="flex items-center gap-2">
+                   <Star className="w-4 h-4 text-yellow-500 fill-current" /> 
+                   <span>4.9 / 87 Google Reviews</span>
+                 </div>
+                 <div className="flex items-center gap-2">
+                    <User className="w-4 h-4 text-[#1d5343]" /> 
+                    <span>Dr. Pranjal — Owner & Chief Dentist</span>
+                 </div>
+              </div>
+
+              {/* Primary Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a href="https://wa.me/918048903967?text=Hi%20Dr.%20Pranjal,%20I%20need%20an%20emergency%20slot." className="w-full sm:w-auto">
+                  <Button className="w-full h-14 px-8 rounded-full bg-[#1A1A1A] hover:bg-[#333] text-white transition-all shadow-xl flex items-center justify-center gap-2 text-base font-bold">
+                    <MessageCircle className="w-5 h-5" /> Check Availability
+                  </Button>
+                </a>
+              </div>
+              
+               <div className="mt-6 text-xs text-gray-500 bg-white/50 inline-block px-3 py-1 rounded-lg">
+                 💰 <strong>₹500 Consultation WAIVED</strong> if treatment starts today.
+              </div>
+
             </div>
           </ScrollAnimation>
 
+           {/* Hero Image */}
           <ScrollAnimation delay={0.2}>
-            <div className="relative">
-               <div className="rounded-[2.5rem] overflow-hidden shadow-2xl relative z-10 aspect-[4/3]">
+            <div className="relative mt-8 lg:mt-0 hidden lg:block">
+               <div className="rounded-[3rem] overflow-hidden shadow-2xl relative z-10 aspect-[3/4] border-8 border-white">
                  <img 
-                   src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?q=80&w=1080" 
-                   alt="Root Canal Treatment" 
-                   className="w-full h-full object-cover scale-105 hover:scale-100 transition-transform duration-1000"
+                   src="/" 
+                   alt="Dr Pranjal Chief Dentist" 
+                   className="w-full h-full object-cover"
                  />
-                 <div className="absolute inset-0 bg-[#1d5343] mix-blend-multiply opacity-10 pointer-events-none" />
+                 <div className="absolute bottom-8 left-8 right-8 bg-white/95 backdrop-blur-xl p-6 rounded-3xl shadow-lg">
+                    <div className="flex items-center gap-4">
+                        <div className="bg-[#1d5343] text-white p-3 rounded-full shrink-0">
+                            <Clock className="w-6 h-6" />
+                        </div>
+                        <div>
+                            <p className="font-serif font-medium text-[#1A1A1A] text-xl">60-Minute Relief</p>
+                            <p className="text-sm text-gray-500">Walk out pain-free in one visit.</p>
+                        </div>
+                    </div>
+                 </div>
                </div>
             </div>
           </ScrollAnimation>
         </div>
       </section>
 
-      {/* --- WHAT IS ROOT CANAL TREATMENT? --- */}
-      <section className="py-20 px-6 md:px-12 bg-white">
+      {/* --- 😰 FEAR KILLER — ZERO-PAIN PROTOCOL --- */}
+      <section className="py-20 px-6 md:px-12 bg-white rounded-t-[3rem]">
         <div className="max-w-[1000px] mx-auto">
           <ScrollAnimation>
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1A1A1A] mb-6">
-                What is Root Canal Treatment?
-              </h2>
-              <div className="text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto space-y-4">
-                <p>Root Canal Treatment (RCT), also known as endodontic therapy, is a dental procedure performed to remove infected or damaged pulp tissue from within the tooth.</p>
-                <p>The pulp, located in the center of the tooth, contains nerves, veins, and connective tissue. When it becomes infected or inflamed, it can cause severe pain and other complications.</p>
-                <p>RCT treatment aims to alleviate pain, eliminate infection, and preserve the tooth's structure and functions, saving your natural tooth from extraction.</p>
-              </div>
+              <span className="text-xs font-bold text-[#1d5343] uppercase tracking-widest mb-4 block">Our Promise</span>
+              <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1A1A1A] mb-6">Scared of the Needle?</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto text-lg font-light leading-relaxed">
+                If your biggest fear is “the injection”, you’re not alone. We use a specialized <span className="font-medium text-[#1A1A1A]">2-Step Zero-Pain Protocol</span>:
+              </p>
             </div>
-          </ScrollAnimation>
 
-          {/* Indications Grid */}
-          <ScrollAnimation>
-            <div className="mb-16">
-              <h3 className="text-2xl font-serif font-medium text-[#1A1A1A] mb-8 text-center">When Do You Need Root Canal Treatment?</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {[
-                  "Serious toothache, especially while biting or applying pressure",
-                  "Prolonged sensitivity to hot or cold temperatures",
-                  "Swelling and tenderness in the gums close to the affected tooth",
-                  "Discoloration or darkening of the tooth",
-                  "Presence of a pimple on the gums",
-                  "Severe decay or damage to the tooth structure"
-                ].map((indication, idx) => (
-                  <div key={idx} className="flex gap-4 items-start bg-[#FDFBF0] p-6 rounded-2xl border border-[#1d5343]/5">
-                    <CheckCircle2 className="w-6 h-6 text-[#1d5343] shrink-0 mt-1" />
-                    <p className="text-gray-700 font-light">{indication}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </ScrollAnimation>
-
-          {/* Benefits Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              {
-                title: "Pain Relief",
-                desc: "Eliminate severe tooth pain and restore comfort in your daily life.",
-                icon: Smile
-              },
-              {
-                title: "Tooth Preservation",
-                desc: "Save your natural tooth and avoid extraction, maintaining your natural bite.",
-                icon: ShieldCheck
-              },
-              {
-                title: "Infection Elimination",
-                desc: "Remove infected pulp tissue completely, preventing spread of infection.",
-                icon: Zap
-              },
-              {
-                title: "Long-lasting Results",
-                desc: "With proper care, treated teeth can last a lifetime with 90%+ success rate.",
-                icon: Clock
-              }
-            ].map((item, idx) => (
-              <ScrollAnimation key={idx} delay={idx * 0.1}>
-                <div className="bg-[#FDFBF0] p-8 rounded-[2rem] border border-[#1d5343]/5 hover:border-[#1d5343]/20 transition-all hover:-translate-y-1 hover:shadow-lg h-full">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-[#1d5343] mb-4 shadow-sm shrink-0">
-                      <item.icon className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-serif font-medium text-[#1A1A1A] mb-2">{item.title}</h3>
-                      <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
-                    </div>
-                  </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              {[
+                { step: "1", title: "The Pre-Numb", desc: "Flavoured surface gel applied to gums. We wait 2 minutes until gums are completely numb." },
+                { step: "2", title: "Sleep-Gel Injection", desc: "We use a micro-thin needle. You hardly feel a thing because of Step 1." },
+                { step: "3", title: "Silent Technology", desc: "Electric rotary instruments. Quiet, gentle, and vibration-free. No loud drills." }
+              ].map((item, i) => (
+                <div key={i} className="bg-[#FDFBF0] p-8 rounded-[2.5rem] text-center hover:translate-y-[-5px] transition-transform duration-300">
+                  <div className="w-12 h-12 bg-[#1d5343]/10 text-[#1d5343] rounded-full flex items-center justify-center mx-auto mb-6 font-bold text-xl font-serif">{item.step}</div>
+                  <h3 className="font-bold text-xl text-[#1A1A1A] mb-3">{item.title}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
                 </div>
-              </ScrollAnimation>
-            ))}
-          </div>
+              ))}
+            </div>
+          </ScrollAnimation>
         </div>
       </section>
 
-      {/* --- SUCCESS RATE & AFTERCARE --- */}
+      {/* --- 🧠 LOGIC BLOCK --- */}
       <section className="py-20 px-6 md:px-12 bg-[#FDFBF0]">
-        <div className="max-w-[1000px] mx-auto">
-          <ScrollAnimation>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div>
-                <h2 className="text-3xl font-serif font-medium text-[#1A1A1A] mb-6">Success Rate & Longevity</h2>
-                <div className="space-y-6">
-                  <div className="bg-white p-6 rounded-2xl border border-[#1d5343]/5">
-                    <div className="text-4xl font-bold text-[#1d5343] mb-2">90%+</div>
-                    <p className="text-gray-600">Success rate for root canal treatments performed by our specialists</p>
-                  </div>
-                  <p className="text-gray-600 leading-relaxed">
-                    Root canals have one of the highest success rates in dentistry. With proper care and maintenance, a treated tooth can last a lifetime.
-                  </p>
+        <div className="max-w-[900px] mx-auto">
+            <ScrollAnimation>
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl font-serif font-medium text-[#1A1A1A]">Modern Science vs Old-School</h2>
                 </div>
-              </div>
-              <div>
-                <h2 className="text-3xl font-serif font-medium text-[#1A1A1A] mb-6">Aftercare Tips</h2>
-                <div className="space-y-4">
-                  {[
-                    "Maintain excellent oral hygiene with regular brushing and flossing",
-                    "Avoid chewing on hard foods or ice",
-                    "Schedule regular dental check-ups every 6 months",
-                    "Wear a crown or restoration to protect the treated tooth",
-                    "Avoid smoking and excessive alcohol consumption",
-                    "Use a soft-bristled toothbrush and gentle brushing technique"
-                  ].map((tip, idx) => (
-                    <div key={idx} className="flex gap-3 items-start">
-                      <CheckCircle2 className="w-5 h-5 text-[#1d5343] shrink-0 mt-1" />
-                      <p className="text-gray-600 text-sm">{tip}</p>
+                
+                <div className="bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-gray-100">
+                    <div className="overflow-x-auto">
+                        <table className="w-full text-left border-collapse min-w-[600px]">
+                            <thead>
+                                <tr className="bg-[#1A1A1A] text-white">
+                                    <th className="p-6 font-sans font-medium text-sm text-gray-400 uppercase tracking-wider w-1/3">Feature</th>
+                                    <th className="p-6 font-sans font-medium text-sm text-gray-400 uppercase tracking-wider w-1/3">Standard Clinic</th>
+                                    <th className="p-6 font-sans font-bold text-sm text-white uppercase tracking-wider w-1/3 bg-[#1d5343]">Smile Science</th>
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-gray-100 text-sm md:text-base">
+                                <tr>
+                                    <td className="p-6 font-medium text-[#1A1A1A]">Technique</td>
+                                    <td className="p-6 text-gray-500">Hand Files (Slow)</td>
+                                    <td className="p-6 font-bold text-[#1d5343] bg-green-50/30">Silent Rotary Electric</td>
+                                </tr>
+                                <tr>
+                                    <td className="p-6 font-medium text-[#1A1A1A]">Visits</td>
+                                    <td className="p-6 text-gray-500">3–4 Visits</td>
+                                    <td className="p-6 font-bold text-[#1d5343] bg-green-50/30">Single Sitting (60 mins)</td>
+                                </tr>
+                                <tr>
+                                    <td className="p-6 font-medium text-[#1A1A1A]">Doctor</td>
+                                    <td className="p-6 text-gray-500">Junior Dentist</td>
+                                    <td className="p-6 font-bold text-[#1d5343] bg-green-50/30">Owner-Doctor (15 Yrs)</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                  ))}
                 </div>
-              </div>
-            </div>
-          </ScrollAnimation>
+            </ScrollAnimation>
         </div>
       </section>
 
-      {/* --- WHY CHOOSE US --- */}
-      <section className="py-24 px-6 md:px-12 bg-white border-t border-[#1d5343]/5">
-        <div className="max-w-[1200px] mx-auto">
-          <ScrollAnimation>
-            <div className="text-center mb-16">
-              <span className="text-xs font-bold text-[#1d5343] uppercase tracking-widest mb-4 block">
-                Excellence in Endodontics
-              </span>
-              <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1A1A1A]">
-                Why Choose Smile Science?
-              </h2>
-            </div>
-          </ScrollAnimation>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                title: "Expert Endodontists",
-                desc: "Highly qualified specialists with extensive experience in advanced RCT procedures.",
-                icon: Award
-              },
-              {
-                title: "Microscope-Assisted",
-                desc: "Precision treatment using operating microscopes for superior outcomes.",
-                icon: Zap
-              },
-              {
-                title: "Painless Procedures",
-                desc: "Advanced anesthesia and gentle techniques ensure a comfortable experience.",
-                icon: Heart
-              },
-              {
-                title: "Modern Technology",
-                desc: "State-of-the-art equipment and sterilization protocols for safety and efficacy.",
-                icon: CheckCircle2
-              }
-            ].map((item, idx) => (
-              <ScrollAnimation key={idx} delay={idx * 0.1}>
-                <div className="bg-[#FDFBF0] p-8 rounded-[2rem] text-center border border-[#1d5343]/5 shadow-sm hover:shadow-md transition-all">
-                  <div className="w-14 h-14 mx-auto bg-[#1d5343]/5 rounded-full flex items-center justify-center text-[#1d5343] mb-6">
-                    <item.icon className="w-7 h-7" />
-                  </div>
-                  <h3 className="text-lg font-bold text-[#1A1A1A] mb-3">{item.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+      {/* --- 💰 PRICING --- */}
+      <section className="py-20 px-6 md:px-12 bg-white">
+        <div className="max-w-[800px] mx-auto">
+            <ScrollAnimation>
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl font-serif font-medium text-[#1A1A1A]">Simple, Fixed Pricing.</h2>
                 </div>
-              </ScrollAnimation>
-            ))}
-          </div>
+
+                <div className="space-y-4">
+                    {/* Consultation */}
+                    <div className="p-6 rounded-2xl bg-[#FDFBF0] flex justify-between items-center border border-[#1d5343]/10">
+                        <span className="font-medium text-[#1A1A1A]">Emergency Consultation</span>
+                        <div className="text-right">
+                           <span className="block text-xs text-gray-400 line-through">₹500</span>
+                           <span className="font-bold text-[#1d5343]">FREE <span className="hidden sm:inline text-xs font-normal text-black">(with treatment)</span></span>
+                        </div>
+                    </div>
+                    {/* Treatments */}
+                    {[
+                        { name: "Painless RCT (Standard)", price: "₹4,500 – ₹6,500" },
+                        { name: "Rotary RCT (Premium)", price: "₹6,500 – ₹8,500", note: "Recommended for molars" },
+                        { name: "Zirconia Crown (15yr Warranty)", price: "₹8,500 – ₹12,000" }
+                    ].map((item, i) => (
+                        <div key={i} className="p-6 rounded-2xl bg-white border border-gray-100 flex justify-between items-center hover:shadow-md transition-all">
+                            <div>
+                                <p className="font-medium text-[#1A1A1A]">{item.name}</p>
+                                {item.note && <p className="text-xs text-gray-400 mt-1">{item.note}</p>}
+                            </div>
+                            <span className="font-bold text-[#1A1A1A]">{item.price}</span>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-8 text-center">
+                    <p className="text-sm text-gray-500 mb-6 flex items-center justify-center gap-2">
+                         <ShieldCheck className="w-4 h-4 text-[#1d5343]" /> No hidden fees. Final quote before starting.
+                    </p>
+                    <a href="https://wa.me/918048903967?text=Hi%20Doctor,%20I%20want%20an%20estimate.">
+                        <Button variant="outline" className="rounded-full border-[#1A1A1A] text-[#1A1A1A] px-8">Get Quote on WhatsApp</Button>
+                    </a>
+                </div>
+            </ScrollAnimation>
         </div>
       </section>
 
-      {/* --- CTA BANNER --- */}
-      <section className="py-20 px-6 md:px-12">
+      {/* --- 🔥 FINAL CTA --- */}
+      <section className="py-24 px-6 md:px-12 bg-[#1d5343] text-white rounded-t-[3rem]">
         <ScrollAnimation>
-          <div className="max-w-4xl mx-auto bg-[#1d5343] rounded-[2.5rem] p-10 md:p-16 text-center text-white relative overflow-hidden">
-             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-             
-             <h2 className="text-3xl md:text-5xl font-serif font-medium mb-6 relative z-10">
-               Don't Suffer from Tooth Pain
+          <div className="max-w-4xl mx-auto text-center">
+             <h2 className="text-3xl md:text-5xl font-serif font-medium mb-6">
+               Don’t Sleep With That Toothache.
              </h2>
-             <p className="text-white/80 text-lg mb-10 max-w-2xl mx-auto font-light relative z-10">
-               Schedule your root canal consultation today and save your natural tooth with our painless, expert treatment.
+             <p className="text-white/80 text-lg mb-10 font-light">
+               We have <span className="font-bold text-[#FCD34D] underline decoration-[#FCD34D]/30 underline-offset-4">2 emergency slots</span> open for this evening.
              </p>
              
-             <div className="relative z-10 flex flex-col items-stretch gap-4 justify-center sm:flex-row sm:items-center">
-               <a href="tel:08048903967" className="w-full sm:w-auto">
-                 <Button className="h-14 w-full rounded-full bg-white text-[#1d5343] transition-all hover:bg-gray-100 flex items-center justify-center gap-2 font-bold sm:w-auto sm:px-8">
-                   <Phone className="w-4 h-4 fill-current" /> Call 080 4890 3967
+             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+               <a href="https://wa.me/918048903967?text=Hi%20Dr.%20Pranjal,%20I%20am%20in%20pain.%20Do%20you%20have%20an%20emergency%20slot%20now?" className="w-full sm:w-auto">
+                 <Button className="h-16 w-full rounded-full bg-white text-[#1d5343] hover:bg-gray-100 px-10 text-lg font-bold shadow-2xl">
+                   Chat on WhatsApp
                  </Button>
                </a>
-               <Link href="/book" className="w-full sm:w-auto">
-                 <Button variant="outline" className="h-14 w-full rounded-full border border-white/30 text-white transition-all hover:bg-white/10 font-medium sm:w-auto sm:px-8">
-                   Book Online
+               <a href="tel:08048903967" className="w-full sm:w-auto">
+                 <Button variant="outline" className="h-16 w-full rounded-full border-white/20 text-white hover:bg-white/10 px-10 text-lg">
+                   Call Clinic
                  </Button>
-               </Link>
+               </a>
              </div>
           </div>
         </ScrollAnimation>

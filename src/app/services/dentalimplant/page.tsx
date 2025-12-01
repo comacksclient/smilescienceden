@@ -7,211 +7,635 @@ import {
   ArrowRight, 
   ShieldCheck, 
   Clock, 
-  Smile, 
   Phone,
   Award,
-  Zap,
-  Heart,
-  Building2
+  MapPin,
+  Car,
+  XCircle,
+  AlertTriangle,
+  Calendar,
+  MessageCircle,
+  ArrowLeftRight
 } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function DentalImplantsPage() {
   return (
-    <div className="bg-[#FDFBF0] min-h-screen font-sans">
+    <div className="bg-[#FDFBF0] min-h-screen font-sans pb-24 md:pb-0">
       
-      {/* --- HERO SECTION --- */}
-      <section className="relative pt-32 pb-20 px-6 md:px-12 overflow-hidden">
-        <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-[#1d5343]/5 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-orange-100/50 rounded-full blur-[100px] pointer-events-none" />
+      {/* --- STICKY MOBILE FOOTER (HIGH-CONVERSION VERSION) --- */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 p-3 md:hidden shadow-[0_-4px_10px_rgba(0,0,0,0.1)] flex items-center justify-between gap-2">
+        <div className="flex flex-col">
+          <span className="text-sm font-bold text-[#1A1A1A]">🦷 Missing a Tooth?</span>
+          <span className="text-[10px] text-gray-500">Avg reply: 2–3 minutes</span>
+        </div>
+        <a href="https://wa.me/918048903967?text=Hi%20Dr.%20Pranjal,%20I%20have%20a%20missing%20tooth.%20Can%20I%20send%20my%20X-ray%20to%20check%20if%20I%E2%80%99m%20eligible%20for%20an%20implant?" target="_blank" rel="noopener noreferrer">
+          <Button className="bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full px-4 h-10 text-xs font-bold shadow-md">
+            GET FIXED QUOTE →
+          </Button>
+        </a>
+      </div>
 
+      {/* --- HERO SECTION --- */}
+      <section className="relative pt-24 pb-16 px-6 md:px-12 overflow-hidden">
+        <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-[#1d5343]/5 rounded-full blur-[120px] pointer-events-none" />
+        
         <div className="max-w-[1200px] mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <ScrollAnimation>
             <div>
-              <div className="inline-flex items-center gap-2 mb-6 bg-white/50 border border-[#1d5343]/10 px-4 py-1.5 rounded-full">
-                 <span className="relative flex h-2 w-2">
-                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1d5343] opacity-75"></span>
-                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1d5343]"></span>
-                 </span>
+              <div className="inline-flex items-center gap-2 mb-6 bg-[#1d5343]/10 border border-[#1d5343]/10 px-4 py-1.5 rounded-full">
                  <span className="text-[11px] font-bold tracking-widest uppercase text-[#1d5343]">
-                   Dental Implants in Bangalore
+                   Local Authority + Transparency
                  </span>
               </div>
               
-              <h1 className="text-4xl md:text-6xl font-serif font-medium text-[#1A1A1A] mb-6 tracking-tight leading-[1.1]">
-                Regain Your Smile <br/>
-                <span className="italic text-[#1d5343]">with Confidence.</span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium text-[#1A1A1A] mb-6 tracking-tight leading-[1.1]">
+                Dental Implants in Neeladri — <span className="text-[#1d5343]">Honest Pricing.</span>
               </h1>
               
-              <p className="text-[#4B5563] text-lg leading-relaxed mb-8 font-light max-w-lg">
-                At <strong>Smile Science Dental Clinic</strong>, we understand the importance of a healthy, radiant smile. 
-                Our dental implant services offer a permanent solution for missing teeth, restoring both function and aesthetics.
-              </p>
+              <div className="space-y-4 mb-8">
+                <p className="text-[#1A1A1A] text-lg font-medium">
+                  Performed ONLY by Dr. Pranjal (15+ Years | Senior Implantologist)
+                </p>
+                <p className="text-[#4B5563]">
+                  Not corporate chains. Not trainees. No rotating consultants.
+                </p>
+                
+                <ul className="space-y-2 text-[#4B5563]">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-[#1d5343]" /> FDA-approved implants (Osstem, Nobel, Straumann)
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-[#1d5343]" /> Transparent fixed pricing (₹20,000–₹45,000)
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-[#1d5343]" /> Lifetime implant warranty
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-[#1d5343]" /> Only 2 implant surgeries per day (maximum precision)
+                  </li>
+                </ul>
+
+                <div className="pt-2 flex items-start gap-2 text-sm text-[#666]">
+                  <MapPin className="w-4 h-4 mt-1 shrink-0 text-[#1d5343]" />
+                  <p>Trusted by Neeladri Road residents since 2010 — Wipro, Infosys, SFO, Concorde, Shriram, NCC</p>
+                </div>
+              </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/book">
-                  <Button className="h-14 px-8 rounded-full bg-[#1A1A1A] text-white hover:bg-[#1d5343] transition-all shadow-lg hover:shadow-xl flex items-center gap-2 text-base font-medium">
-                    Book Appointment
-                    <ArrowRight className="w-4 h-4" />
+                <a href="https://wa.me/918048903967?text=Hi%20Dr.%20Pranjal,%20I%20have%20a%20missing%20tooth.%20Can%20I%20send%20my%20X-ray%20to%20check%20if%20I%E2%80%99m%20eligible%20for%20an%20implant?" className="w-full sm:w-auto">
+                  <Button className="w-full h-14 px-8 rounded-full bg-[#1d5343] hover:bg-[#153e32] text-white transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 text-base font-bold">
+                    <MessageCircle className="w-5 h-5" /> Check Eligibility on WhatsApp
                   </Button>
-                </Link>
-                <Link href="/contact">
-                  <Button variant="outline" className="h-14 px-8 rounded-full border border-[#1A1A1A]/10 text-[#1A1A1A] hover:bg-white transition-all flex items-center gap-2 text-base font-medium">
-                    Contact Us
+                </a>
+                <Link href="#pricing" className="w-full sm:w-auto">
+                  <Button variant="outline" className="w-full h-14 px-8 rounded-full border border-[#1A1A1A]/10 text-[#1A1A1A] hover:bg-white transition-all flex items-center justify-center gap-2 text-base font-medium">
+                    View Fixed Pricing
                   </Button>
                 </Link>
               </div>
+              <p className="mt-3 text-xs text-gray-500 italic"> Senior doctor replies personally </p>
             </div>
           </ScrollAnimation>
 
           <ScrollAnimation delay={0.2}>
             <div className="relative">
-               <div className="rounded-[2.5rem] overflow-hidden shadow-2xl relative z-10 aspect-[4/3]">
+               <div className="rounded-[2.5rem] overflow-hidden shadow-2xl relative z-10 aspect-[4/5] md:aspect-[4/3]">
                  <img 
-                   src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?q=80&w=1080" 
-                   alt="Dental Implants Patient" 
-                   className="w-full h-full object-cover scale-105 hover:scale-100 transition-transform duration-1000"
+                   src="/" 
+                   alt="Dr. Pranjal Senior Implantologist" 
+                   className="w-full h-full object-cover"
                  />
-                 <div className="absolute inset-0 bg-[#1d5343] mix-blend-multiply opacity-10 pointer-events-none" />
+                 <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-[#1d5343]/10">
+                    <div className="flex items-center gap-3">
+                        <div className="bg-[#1d5343] text-white p-2 rounded-full">
+                            <ShieldCheck className="w-6 h-6" />
+                        </div>
+                        <div>
+                            <p className="font-bold text-[#1A1A1A]">Lifetime Warranty</p>
+                            <p className="text-xs text-gray-600">On all implant bodies</p>
+                        </div>
+                    </div>
+                 </div>
                </div>
             </div>
           </ScrollAnimation>
         </div>
       </section>
 
-      {/* --- WHAT ARE DENTAL IMPLANTS? --- */}
-      <section className="py-20 px-6 md:px-12 bg-white">
-        <div className="max-w-[1000px] mx-auto">
-          <ScrollAnimation>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1A1A1A] mb-6">
-                What are Dental Implants?
-              </h2>
-              <div className="text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto space-y-4">
-                <p>Dental implants are artificial tooth roots made of biocompatible materials such as titanium.</p>
-                <p>They are surgically placed into the jawbone to support replacement teeth or bridges.</p>
-                <p>Implants provide a sturdy foundation for crowns, bridges, or dentures, mimicking the natural structure of your teeth.</p>
-              </div>
-            </div>
-          </ScrollAnimation>
-
-          {/* Benefits Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              {
-                title: "Improved Appearance",
-                desc: "Dental implants look and feel like natural teeth, enhancing your smile and facial aesthetics.",
-                icon: Smile
-              },
-              {
-                title: "Enhanced Comfort",
-                desc: "Unlike removable dentures, implants are fixed in place, eliminating discomfort and slippage.",
-                icon: Heart
-              },
-              {
-                title: "Durability",
-                desc: "With proper care, dental implants can last a lifetime, offering a long-term solution for missing teeth.",
-                icon: Clock
-              },
-              {
-                title: "Protection of Jawbone",
-                desc: "Implants stimulate bone growth, preventing bone loss and maintaining the integrity of your facial structure.",
-                icon: ShieldCheck
-              }
-            ].map((item, idx) => (
-              <ScrollAnimation key={idx} delay={idx * 0.1}>
-                <div className="bg-[#FDFBF0] p-8 rounded-[2rem] border border-[#1d5343]/5 hover:border-[#1d5343]/20 transition-all hover:-translate-y-1 hover:shadow-lg h-full">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-[#1d5343] mb-4 shadow-sm shrink-0">
-                      <item.icon className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-serif font-medium text-[#1A1A1A] mb-2">{item.title}</h3>
-                      <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
-                    </div>
-                  </div>
-                </div>
-              </ScrollAnimation>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* --- WHY CHOOSE US --- */}
-      <section className="py-24 px-6 md:px-12 bg-[#FDFBF0] border-t border-[#1d5343]/5">
+      {/* --- NEW SECTION: BEFORE & AFTER VISUAL PROOF --- */}
+      <section className="py-16 px-6 md:px-12 bg-[#1d5343] text-white overflow-hidden">
         <div className="max-w-[1200px] mx-auto">
-          <ScrollAnimation>
-            <div className="text-center mb-16">
-              <span className="text-xs font-bold text-[#1d5343] uppercase tracking-widest mb-4 block">
-                Excellence in Implantology
-              </span>
-              <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1A1A1A]">
-                Why Choose Smile Science?
-              </h2>
-            </div>
-          </ScrollAnimation>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                title: "Expertise",
-                desc: "Our team consists of skilled professionals with extensive experience in dental implantology.",
-                icon: Award
-              },
-              {
-                title: "State-of-the-Art Facilities",
-                desc: "We utilize advanced technology and modern techniques to deliver superior results.",
-                icon: Building2
-              },
-              {
-                title: "Personalized Care",
-                desc: "We prioritize patient comfort and satisfaction, providing individualized treatment plans.",
-                icon: Heart
-              },
-              {
-                title: "Comprehensive Services",
-                desc: "From initial consultation to post-operative care, we offer comprehensive services under one roof.",
-                icon: CheckCircle2
-              }
-            ].map((item, idx) => (
-              <ScrollAnimation key={idx} delay={idx * 0.1}>
-                <div className="bg-white p-8 rounded-[2rem] text-center border border-[#1d5343]/5 shadow-sm hover:shadow-md transition-all">
-                  <div className="w-14 h-14 mx-auto bg-[#1d5343]/5 rounded-full flex items-center justify-center text-[#1d5343] mb-6">
-                    <item.icon className="w-7 h-7" />
-                  </div>
-                  <h3 className="text-lg font-bold text-[#1A1A1A] mb-3">{item.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+            <ScrollAnimation>
+                <div className="text-center mb-10">
+                    <span className="text-xs font-bold tracking-widest uppercase text-white/70 mb-2 block">Real Results</span>
+                    <h2 className="text-3xl font-serif font-medium text-white mb-4">Neeladri Smiles Restored</h2>
+                    <p className="text-white/80 max-w-2xl mx-auto">
+                        See the transformation. Implants restore not just your teeth, but your facial structure and confidence.
+                    </p>
                 </div>
-              </ScrollAnimation>
-            ))}
-          </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                    {/* Case 1 */}
+                    <div className="bg-white/10 rounded-[2rem] p-4 backdrop-blur-sm border border-white/10">
+                        <div className="relative h-64 md:h-72 rounded-[1.5rem] overflow-hidden group">
+                            {/* Placeholder Images - In production use real before/after */}
+                            <div className="absolute inset-0 bg-black/50 flex items-center justify-center text-center p-6">
+                                <div>
+                                    <ArrowLeftRight className="w-10 h-10 mx-auto text-white/50 mb-2" />
+                                    <p className="text-sm text-white/70">Hover/Tap to see transformation</p>
+                                </div>
+                            </div>
+                            <img 
+                                src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=800" 
+                                alt="Before Implant"
+                                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-100 group-hover:opacity-0" 
+                            />
+                            <div className="absolute top-4 left-4 bg-black/60 px-3 py-1 rounded-full text-xs font-bold uppercase transition-opacity duration-500 group-hover:opacity-0">Before</div>
+                            
+                            <img 
+                                src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?q=80&w=800" 
+                                alt="After Implant" 
+                                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 group-hover:opacity-100" 
+                            />
+                            <div className="absolute top-4 right-4 bg-[#25D366] px-3 py-1 rounded-full text-xs font-bold uppercase transition-opacity duration-500 opacity-0 group-hover:opacity-100">After</div>
+                        </div>
+                        <div className="mt-4 px-2">
+                            <p className="font-bold text-lg">Single Molar Replacement</p>
+                            <p className="text-sm text-white/70">34-year-old IT Professional from Wipro Gate</p>
+                        </div>
+                    </div>
+
+                    {/* Case 2 */}
+                    <div className="bg-white/10 rounded-[2rem] p-4 backdrop-blur-sm border border-white/10 hidden md:block">
+                        <div className="relative h-64 md:h-72 rounded-[1.5rem] overflow-hidden group">
+                            <div className="absolute inset-0 bg-black/50 flex items-center justify-center text-center p-6">
+                                <div>
+                                    <ArrowLeftRight className="w-10 h-10 mx-auto text-white/50 mb-2" />
+                                    <p className="text-sm text-white/70">Hover/Tap to see transformation</p>
+                                </div>
+                            </div>
+                            <img 
+                                src="https://images.unsplash.com/photo-1616391182219-e080b4d1043a?q=80&w=800" 
+                                alt="Before Implant"
+                                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-100 group-hover:opacity-0" 
+                            />
+                            <div className="absolute top-4 left-4 bg-black/60 px-3 py-1 rounded-full text-xs font-bold uppercase transition-opacity duration-500 group-hover:opacity-0">Before</div>
+                            
+                            <img 
+                                src="https://images.unsplash.com/photo-1588776813677-77aaa5b8d0d0?q=80&w=800" 
+                                alt="After Implant" 
+                                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 group-hover:opacity-100" 
+                            />
+                            <div className="absolute top-4 right-4 bg-[#25D366] px-3 py-1 rounded-full text-xs font-bold uppercase transition-opacity duration-500 opacity-0 group-hover:opacity-100">After</div>
+                        </div>
+                        <div className="mt-4 px-2">
+                            <p className="font-bold text-lg">Full Arch Restoration</p>
+                            <p className="text-sm text-white/70">65-year-old Resident from Electronic City Ph 1</p>
+                        </div>
+                    </div>
+                </div>
+            </ScrollAnimation>
         </div>
       </section>
 
-      {/* --- CTA BANNER --- */}
-      <section className="py-20 px-6 md:px-12">
+      {/* --- LOCAL DOMINATION STRATEGY: OWNER-DOCTOR ADVANTAGE --- */}
+      <section className="py-16 px-6 md:px-12 bg-white">
+        <div className="max-w-[1000px] mx-auto">
+            <ScrollAnimation>
+                <div className="bg-[#FDFBF0] border border-[#1d5343]/20 rounded-[2rem] p-8 md:p-12 relative overflow-hidden">
+                    <div className="absolute top-0 left-0 w-full h-2 bg-[#1d5343]"></div>
+                    <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1A1A1A] mb-8 text-center">
+                        Why Neeladri Residents Prefer Owner-Run Clinics
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {[
+                            "Same surgeon every visit",
+                            "No sales targets",
+                            "No corporate billing",
+                            "No forced add-ons",
+                            "Doctor has skin in the game"
+                        ].map((item, i) => (
+                            <div key={i} className="flex items-center gap-3">
+                                <div className="w-8 h-8 rounded-full bg-[#1d5343]/10 flex items-center justify-center text-[#1d5343] shrink-0">
+                                    <CheckCircle2 className="w-5 h-5" />
+                                </div>
+                                <span className="font-medium text-[#1A1A1A]">{item}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </ScrollAnimation>
+        </div>
+      </section>
+
+      {/* --- VIP SURGERY DAY --- */}
+      <section className="py-12 px-6 md:px-12">
+        <div className="max-w-[1000px] mx-auto">
+            <ScrollAnimation>
+                <div className="bg-[#1A1A1A] text-white rounded-[2.5rem] p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 shadow-2xl relative overflow-hidden">
+                    <div className="absolute -right-20 -top-20 bg-white/5 w-64 h-64 rounded-full blur-3xl"></div>
+                    
+                    <div className="bg-white text-[#1A1A1A] p-4 rounded-2xl shrink-0">
+                        <Car className="w-12 h-12" />
+                    </div>
+                    
+                    <div className="flex-1 text-center md:text-left">
+                        <h3 className="text-2xl font-serif font-medium text-[#cfa86e] mb-2">FREE Uber Premier on Implant Day</h3>
+                        <p className="text-sm font-bold tracking-wider uppercase opacity-80 mb-4">Exclusive for Neeladri, Electronic City Phase 1 & 2</p>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-sm text-gray-300">
+                            <span className="flex items-center gap-2 justify-center md:justify-start"><CheckCircle2 className="w-4 h-4 text-[#cfa86e]"/> Pick-up & Drop-off</span>
+                            <span className="flex items-center gap-2 justify-center md:justify-start"><CheckCircle2 className="w-4 h-4 text-[#cfa86e]"/> No driving after anesthesia</span>
+                        </div>
+                    </div>
+                </div>
+            </ScrollAnimation>
+        </div>
+      </section>
+
+      {/* --- SOCIAL PROOF & GOOGLE REVIEWS --- */}
+      <section className="py-20 px-6 md:px-12 bg-white">
+        <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <ScrollAnimation>
+                <div>
+                    <h2 className="text-3xl font-serif font-medium text-[#1A1A1A] mb-6">
+                        Trusted in Neeladri for 15+ years
+                    </h2>
+                    <div className="flex flex-col gap-4 mb-8">
+                        <div className="flex items-center gap-2 text-yellow-500">
+                            {[1,2,3,4,5].map(i => <Award key={i} className="w-6 h-6 fill-current" />)}
+                            <span className="text-[#1A1A1A] font-bold text-lg ml-2">4.9/5 Google Rating</span>
+                        </div>
+                        <p className="text-gray-500">(200+ Reviews)</p>
+                    </div>
+
+                    <div className="flex flex-wrap gap-4">
+                        <span className="px-4 py-2 bg-[#FDFBF0] border border-[#1d5343]/10 rounded-lg text-[#1d5343] font-medium text-sm">
+                            1000+ Successful Implants
+                        </span>
+                        <span className="px-4 py-2 bg-[#FDFBF0] border border-[#1d5343]/10 rounded-lg text-[#1d5343] font-medium text-sm">
+                            Same Doctor, Every Visit
+                        </span>
+                        <span className="px-4 py-2 bg-[#FDFBF0] border border-[#1d5343]/10 rounded-lg text-[#1d5343] font-medium text-sm">
+                            Honest Pricing Clinic
+                        </span>
+                    </div>
+                </div>
+            </ScrollAnimation>
+
+            <ScrollAnimation delay={0.2}>
+                {/* ZERO-CLICK TRUST SIGNAL: REVIEW WIDGET */}
+                <div className="bg-white border border-gray-100 rounded-[2rem] p-6 shadow-xl">
+                     {/* Placeholder for Elfsight/Google Widget */}
+                     <div className="flex items-start gap-4 mb-4">
+                        <div className="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">R</div>
+                        <div>
+                            <p className="font-bold text-[#1A1A1A]">Ramesh K.</p>
+                            <p className="text-xs text-gray-500">2 weeks ago</p>
+                        </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" className="h-5 ml-auto opacity-50" alt="Google" />
+                     </div>
+                     <div className="flex text-yellow-500 mb-2">★★★★★</div>
+                     <p className="text-gray-600 text-sm leading-relaxed">
+                        "I live in Wipro Gate and got my implant with Dr. Pranjal. The best part was knowing exactly who would treat me. Seamless experience and honest pricing."
+                     </p>
+                </div>
+            </ScrollAnimation>
+        </div>
+      </section>
+
+      {/* --- COMPARISON TABLE --- */}
+      <section className="py-20 px-6 md:px-12 bg-[#FDFBF0]">
+        <div className="max-w-[1000px] mx-auto">
+            <ScrollAnimation>
+                <div className="text-center mb-10">
+                    <h2 className="text-3xl font-serif font-medium text-[#1A1A1A]">Smile Science vs Corporate Chains</h2>
+                </div>
+                
+                <div className="bg-white rounded-[2rem] overflow-hidden shadow-lg border border-[#1d5343]/10">
+                    <div className="overflow-x-auto">
+                        <table className="w-full text-left border-collapse">
+                            <thead>
+                                <tr className="bg-[#1d5343] text-white">
+                                    <th className="p-6 font-serif font-normal w-1/3">Feature</th>
+                                    <th className="p-6 font-serif font-normal w-1/3 bg-[#1A1A1A]">Corporate Chains</th>
+                                    <th className="p-6 font-serif font-bold w-1/3 bg-[#1d5343]">Smile Science (Dr. Pranjal)</th>
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-gray-100 text-sm md:text-base">
+                                <tr>
+                                    <td className="p-6 font-medium text-gray-900">Doctor</td>
+                                    <td className="p-6 text-gray-500">Rotating interns & consultants</td>
+                                    <td className="p-6 font-bold text-[#1d5343] bg-[#FDFBF0]">Same senior doctor for 15 years</td>
+                                </tr>
+                                <tr>
+                                    <td className="p-6 font-medium text-gray-900">Pricing</td>
+                                    <td className="p-6 text-gray-500">Teaser → add-ons</td>
+                                    <td className="p-6 font-bold text-[#1d5343] bg-[#FDFBF0]">Transparent, fixed pricing</td>
+                                </tr>
+                                <tr>
+                                    <td className="p-6 font-medium text-gray-900">Implants</td>
+                                    <td className="p-6 text-gray-500">Economy, generic kits</td>
+                                    <td className="p-6 font-bold text-[#1d5343] bg-[#FDFBF0]">Osstem, Nobel, Straumann</td>
+                                </tr>
+                                <tr>
+                                    <td className="p-6 font-medium text-gray-900">Care Style</td>
+                                    <td className="p-6 text-gray-500">High volume</td>
+                                    <td className="p-6 font-bold text-[#1d5343] bg-[#FDFBF0]">Only 2 surgeries/day</td>
+                                </tr>
+                                <tr>
+                                    <td className="p-6 font-medium text-gray-900">Warranty</td>
+                                    <td className="p-6 text-gray-500">Limited</td>
+                                    <td className="p-6 font-bold text-[#1d5343] bg-[#FDFBF0]">Lifetime Warranty</td>
+                                </tr>
+                                <tr>
+                                    <td className="p-6 font-medium text-gray-900">Trust</td>
+                                    <td className="p-6 text-red-500">Sales-driven</td>
+                                    <td className="p-6 font-bold text-[#1d5343] bg-[#FDFBF0]">Doctor-owned, no targets</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </ScrollAnimation>
+        </div>
+      </section>
+
+      {/* --- PRICING --- */}
+      <section id="pricing" className="py-24 px-6 md:px-12 bg-white">
+        <div className="max-w-[1200px] mx-auto">
+            <ScrollAnimation>
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1A1A1A] mb-4">
+                        Fixed, All-Inclusive Implant Packages
+                    </h2>
+                    <div className="inline-block bg-[#FDFBF0] px-6 py-3 rounded-xl border border-[#1d5343]/10 text-sm text-[#4B5563]">
+                        <strong>EVERY PLAN INCLUDES:</strong> Implant surgery • FDA-approved body • Healing abutment • Digital X-rays • Sterilization consumables • All follow-ups • Long-term care • Lifetime warranty • Zero hidden fees
+                    </div>
+                </div>
+            </ScrollAnimation>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {/* Standard Plan */}
+                <ScrollAnimation delay={0.1}>
+                    <div className="h-full border-2 border-[#1d5343] rounded-[2rem] p-8 relative bg-[#FDFBF0] shadow-xl transform scale-105 z-10">
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1d5343] text-white px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase shadow-md">
+                            Most Patients Choose This
+                        </div>
+                        <h3 className="text-xl font-bold text-[#1A1A1A] mb-2">Standard Value Plan</h3>
+                        <div className="text-3xl font-serif font-medium text-[#1d5343] mb-4">₹20,000–₹25,000</div>
+                        <p className="text-sm text-gray-600 mb-6">Brand: Osstem / Hi-Tec</p>
+                        <p className="text-sm font-medium text-[#1A1A1A] mb-8 bg-white p-3 rounded-lg border border-[#1d5343]/10">
+                            Ideal: Back teeth & high chewing load
+                        </p>
+                        <a href="https://wa.me/918048903967?text=Hi%20Doctor,%20I%20want%20an%20exact%20quote%20for%20single%20implant." className="block">
+                            <Button className="w-full rounded-full bg-[#1d5343] hover:bg-[#163f33] text-white">Get Exact Price Quote</Button>
+                        </a>
+                    </div>
+                </ScrollAnimation>
+
+                {/* Premium Plan */}
+                <ScrollAnimation delay={0.2}>
+                    <div className="h-full border border-gray-200 rounded-[2rem] p-8 relative bg-white hover:shadow-lg transition-all">
+                        <h3 className="text-xl font-bold text-[#1A1A1A] mb-2">Premium Swiss Plan</h3>
+                        <div className="text-3xl font-serif font-medium text-[#1A1A1A] mb-4">₹30,000–₹45,000</div>
+                        <p className="text-sm text-gray-600 mb-6">Brand: Nobel Biocare / Straumann</p>
+                        <p className="text-sm font-medium text-[#1A1A1A] mb-8 bg-gray-50 p-3 rounded-lg">
+                            Ideal: Smile zone (front teeth)
+                        </p>
+                         <a href="https://wa.me/918048903967?text=Hi%20Doctor,%20I%20want%20an%20exact%20quote%20for%20premium%20implant." className="block">
+                            <Button variant="outline" className="w-full rounded-full border-[#1A1A1A] text-[#1A1A1A]">Get Exact Price Quote</Button>
+                        </a>
+                    </div>
+                </ScrollAnimation>
+
+                {/* Full Mouth */}
+                <ScrollAnimation delay={0.3}>
+                    <div className="h-full border border-gray-200 rounded-[2rem] p-8 relative bg-white hover:shadow-lg transition-all">
+                        <h3 className="text-xl font-bold text-[#1A1A1A] mb-2">Full Mouth Implants</h3>
+                        <div className="text-3xl font-serif font-medium text-[#1A1A1A] mb-4">Custom Quote</div>
+                        <p className="text-sm text-gray-600 mb-6">Brand: Customizable</p>
+                        <p className="text-sm font-medium text-[#1A1A1A] mb-8 bg-gray-50 p-3 rounded-lg">
+                            For denture replacement or multiple missing teeth.
+                        </p>
+                        <a href="https://wa.me/918048903967?text=Hi%20Doctor,%20I%20want%20an%20exact%20quote%20for%20full%20mouth." className="block">
+                            <Button variant="outline" className="w-full rounded-full border-[#1A1A1A] text-[#1A1A1A]">Get Exact Price Quote</Button>
+                        </a>
+                    </div>
+                </ScrollAnimation>
+            </div>
+        </div>
+      </section>
+
+      {/* --- ELIGIBILITY FILTER (HONESTY) --- */}
+      <section className="py-20 px-6 md:px-12 bg-[#1A1A1A] text-white">
+        <div className="max-w-[1000px] mx-auto">
+            <ScrollAnimation>
+                <div className="text-center mb-12">
+                     <h2 className="text-3xl font-serif font-medium mb-4">Brutally Honest Eligibility</h2>
+                     <p className="opacity-70">We prioritize your health over our revenue.</p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    {/* Good Candidate */}
+                    <div className="bg-white/5 rounded-[2rem] p-8 border border-white/10">
+                        <h3 className="text-xl font-bold text-[#25D366] mb-6 flex items-center gap-2">
+                            <CheckCircle2 className="w-6 h-6"/> Who is a Great Candidate?
+                        </h3>
+                        <ul className="space-y-4">
+                            <li className="flex items-start gap-3 opacity-90">
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] mt-2 shrink-0"></span>
+                                Missing one or more teeth
+                            </li>
+                            <li className="flex items-start gap-3 opacity-90">
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] mt-2 shrink-0"></span>
+                                Want treatment ONLY from a senior doctor
+                            </li>
+                            <li className="flex items-start gap-3 opacity-90">
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] mt-2 shrink-0"></span>
+                                Want fixed pricing & lifetime warranty
+                            </li>
+                            <li className="flex items-start gap-3 opacity-90">
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] mt-2 shrink-0"></span>
+                                Want implants that last 15–25+ years
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* Not Suitable */}
+                    <div className="bg-red-900/10 rounded-[2rem] p-8 border border-red-500/20">
+                        <h3 className="text-xl font-bold text-red-400 mb-6 flex items-center gap-2">
+                            <XCircle className="w-6 h-6"/> Who is NOT Suitable?
+                        </h3>
+                        <ul className="space-y-4">
+                             <li className="flex items-start gap-3 opacity-90">
+                                <span className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2 shrink-0"></span>
+                                Uncontrolled diabetes
+                            </li>
+                            <li className="flex items-start gap-3 opacity-90">
+                                <span className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2 shrink-0"></span>
+                                Heavy smoking
+                            </li>
+                            <li className="flex items-start gap-3 opacity-90">
+                                <span className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2 shrink-0"></span>
+                                Severe bone loss without grafting
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </ScrollAnimation>
+        </div>
+      </section>
+
+      {/* --- COST OF DELAY (URGENCY) --- */}
+      <section className="py-16 px-6 md:px-12 bg-orange-50 border-b border-orange-100">
+        <div className="max-w-[800px] mx-auto text-center">
+             <ScrollAnimation>
+                <div className="flex justify-center mb-4">
+                    <AlertTriangle className="w-10 h-10 text-orange-500" />
+                </div>
+                <h2 className="text-2xl md:text-3xl font-serif font-bold text-orange-900 mb-4">
+                    Every Month You Delay = More Bone Loss = Higher Future Cost
+                </h2>
+                <p className="text-orange-800 mb-6">
+                    Bone loss begins within <span className="font-bold">6–12 months</span> of tooth loss.
+                </p>
+                <div className="bg-white p-6 rounded-2xl shadow-sm text-left inline-block w-full">
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-700 text-sm">
+                        <li className="flex items-center gap-2"><span className="text-orange-500">•</span> Makes implant surgery harder</li>
+                        <li className="flex items-center gap-2"><span className="text-orange-500">•</span> Requires bone graft (extra ₹8k–₹15k)</li>
+                        <li className="flex items-center gap-2"><span className="text-orange-500">•</span> Causes teeth to shift</li>
+                        <li className="flex items-center gap-2"><span className="text-orange-500">•</span> Leads to early aging & sunken cheeks</li>
+                    </ul>
+                </div>
+                <p className="mt-6 font-medium text-[#1A1A1A]">Treat now = easier, cheaper, stronger implants.</p>
+             </ScrollAnimation>
+        </div>
+      </section>
+
+      {/* --- MEET THE SURGEON --- */}
+      <section className="py-20 px-6 md:px-12 bg-white">
+         <div className="max-w-[1000px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <ScrollAnimation>
+                 <div className="rounded-[2.5rem] overflow-hidden aspect-[3/4]">
+                    {/* Smiling Headshot Placeholder */}
+                    <img 
+                        src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1080" 
+                        alt="Dr. Pranjal" 
+                        className="w-full h-full object-cover" 
+                    />
+                 </div>
+            </ScrollAnimation>
+            <ScrollAnimation delay={0.2}>
+                <h2 className="text-3xl font-serif font-medium text-[#1A1A1A] mb-6">
+                    Your Implant Surgeon — Dr. Pranjal
+                </h2>
+                <div className="space-y-4">
+                    <div className="flex items-center gap-3 p-3 bg-[#FDFBF0] rounded-xl border border-[#1d5343]/10">
+                        <Award className="w-6 h-6 text-[#1d5343]" />
+                        <span className="font-medium">Senior Implantologist</span>
+                    </div>
+                    <div className="flex items-center gap-3 p-3 bg-[#FDFBF0] rounded-xl border border-[#1d5343]/10">
+                        <Clock className="w-6 h-6 text-[#1d5343]" />
+                        <span className="font-medium">15+ years surgical experience</span>
+                    </div>
+                    <div className="flex items-center gap-3 p-3 bg-[#FDFBF0] rounded-xl border border-[#1d5343]/10">
+                        <CheckCircle2 className="w-6 h-6 text-[#1d5343]" />
+                        <span className="font-medium">1000+ implants placed</span>
+                    </div>
+                    
+                    <p className="mt-6 text-gray-600 leading-relaxed">
+                        Known for ethical, transparent care and trusted by 200+ Neeladri families. 
+                        Each implant is performed <strong className="text-[#1d5343]">PERSONALLY</strong>.
+                    </p>
+                </div>
+            </ScrollAnimation>
+         </div>
+      </section>
+
+      {/* --- JOURNEY & SCARCITY --- */}
+      <section className="py-20 px-6 md:px-12 bg-[#FDFBF0]">
+        <div className="max-w-[1000px] mx-auto">
+            <ScrollAnimation>
+                <h2 className="text-3xl font-serif font-medium text-center text-[#1A1A1A] mb-12">Your 2-Visit Implant Journey</h2>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                    <div className="bg-white p-6 rounded-[2rem] shadow-sm relative z-10 text-center">
+                        <div className="w-12 h-12 bg-[#1d5343] text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
+                        <h3 className="font-bold text-[#1A1A1A] mb-2">Visit 1: Planning</h3>
+                        <p className="text-sm text-gray-500">CBCT scan → planning → implant placement (45 mins)</p>
+                    </div>
+                    
+                    <div className="bg-white p-6 rounded-[2rem] shadow-sm relative z-10 text-center border-t-4 border-dashed border-[#1d5343]/20 mt-8 md:mt-0">
+                        <div className="w-12 h-12 bg-white border-2 border-[#1d5343] text-[#1d5343] rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+                            <Clock className="w-5 h-5" />
+                        </div>
+                        <h3 className="font-bold text-[#1A1A1A] mb-2">Healing (8-12 wks)</h3>
+                        <p className="text-sm text-gray-500">Implant integrates with bone</p>
+                    </div>
+
+                    <div className="bg-white p-6 rounded-[2rem] shadow-sm relative z-10 text-center">
+                        <div className="w-12 h-12 bg-[#1d5343] text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
+                        <h3 className="font-bold text-[#1A1A1A] mb-2">Visit 2: Crown</h3>
+                        <p className="text-sm text-gray-500">Bite adjustment → final restoration → done</p>
+                    </div>
+                </div>
+            </ScrollAnimation>
+
+            {/* SCARCITY BLOCK */}
+            <div className="mt-16 max-w-2xl mx-auto">
+                 <ScrollAnimation delay={0.3}>
+                    <div className="bg-red-50 border border-red-100 rounded-2xl p-6 text-center">
+                        <div className="flex justify-center mb-2">
+                             <Calendar className="w-6 h-6 text-red-500" />
+                        </div>
+                        <h3 className="text-lg font-bold text-red-900 mb-1">Only 2 Implant Slots Per Day</h3>
+                        <p className="text-sm text-red-800 mb-4">To maintain strict sterilization & precision. Slots fill 3–5 days in advance.</p>
+                        <a href="https://wa.me/918048903967?text=Hi%20Doctor,%20I%20want%20to%20check%20the%20next%20available%20slot." className="inline-block">
+                             <span className="text-sm font-bold text-red-600 underline">Check Next Available Slot on WhatsApp →</span>
+                        </a>
+                    </div>
+                 </ScrollAnimation>
+            </div>
+        </div>
+      </section>
+
+      {/* --- LOCAL AUTHORITY --- */}
+      <section className="py-12 px-6 bg-white border-t border-gray-100">
+          <div className="max-w-[1000px] mx-auto text-center">
+            <p className="flex items-center justify-center gap-2 text-gray-600 font-medium">
+                <MapPin className="w-5 h-5 text-[#1d5343]" />
+                Serving Neeladri Road, Electronic City Phase 1 & 2
+            </p>
+            <p className="text-sm text-gray-400 mt-2">
+                Landmarks: SFO Aura, Wipro Gate, Concorde Manhattans (Within walking distance)
+            </p>
+          </div>
+      </section>
+
+      {/* --- ULTRA-STRONG FINAL CTA --- */}
+      <section className="py-20 px-6 md:px-12 bg-[#1d5343]">
         <ScrollAnimation>
-          <div className="max-w-4xl mx-auto bg-[#1d5343] rounded-[2.5rem] p-10 md:p-16 text-center text-white relative overflow-hidden">
-             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-             
-             <h2 className="text-3xl md:text-5xl font-serif font-medium mb-6 relative z-10">
-               Ready to restore your smile?
+          <div className="max-w-4xl mx-auto text-center text-white">
+             <h2 className="text-3xl md:text-5xl font-serif font-medium mb-6">
+               Your New Smile Is Just <span className="underline decoration-white/30">2 Visits</span> Away
              </h2>
-             <p className="text-white/80 text-lg mb-10 max-w-2xl mx-auto font-light relative z-10">
-               Schedule your consultation today and take the first step towards confidence.
+             <p className="text-white/80 text-lg mb-10 max-w-xl mx-auto font-light">
+               Send your X-ray for a free WhatsApp eligibility check.
              </p>
              
-             <div className="relative z-10 flex flex-col items-stretch gap-4 justify-center sm:flex-row sm:items-center">
-               <a href="tel:08048903967" className="w-full sm:w-auto">
-                 <Button className="h-14 w-full rounded-full bg-white text-[#1d5343] transition-all hover:bg-gray-100 flex items-center justify-center gap-2 font-bold sm:w-auto sm:px-8">
-                   <Phone className="w-4 h-4 fill-current" /> Call 080 4890 3967
+             <div className="flex flex-col items-stretch gap-4 justify-center sm:flex-row sm:items-center">
+               <a href="https://wa.me/918048903967?text=Hi%20Dr.%20Pranjal,%20I%20have%20a%20missing%20tooth.%20Can%20I%20send%20my%20X-ray%20to%20check%20if%20I%E2%80%99m%20eligible%20for%20an%20implant?" className="w-full sm:w-auto">
+                 <Button className="h-16 w-full rounded-full bg-white text-[#1d5343] transition-all hover:bg-gray-100 flex items-center justify-center gap-2 font-bold sm:w-auto sm:px-10 text-lg shadow-xl">
+                   <MessageCircle className="w-5 h-5" /> Check Eligibility on WhatsApp
                  </Button>
                </a>
-               <Link href="/book" className="w-full sm:w-auto">
-                 <Button variant="outline" className="h-14 w-full rounded-full border border-white/30 text-white transition-all hover:bg-white/10 font-medium sm:w-auto sm:px-8">
-                   Book Online
+               <a href="#pricing" className="w-full sm:w-auto">
+                 <Button variant="outline" className="h-16 w-full rounded-full border border-white/30 text-white transition-all hover:bg-white/10 font-medium sm:w-auto sm:px-10 text-lg">
+                   Get Exact Price Quote
                  </Button>
-               </Link>
+               </a>
              </div>
           </div>
         </ScrollAnimation>
