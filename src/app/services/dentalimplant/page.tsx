@@ -254,11 +254,11 @@ export default function DentalImplantsPage() {
         </div>
       </section>
 
-      {/* --- SOCIAL PROOF & GOOGLE REVIEWS --- */}
+      {/* --- SOCIAL PROOF & GOOGLE REVIEWS (WITH MAP) --- */}
       <section className="py-20 px-6 md:px-12 bg-white">
-        <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <ScrollAnimation>
-                <div>
+                <div className="sticky top-24">
                     <h2 className="text-3xl font-serif font-medium text-[#1A1A1A] mb-6">
                         Trusted in Neeladri for 15+ years
                     </h2>
@@ -270,7 +270,7 @@ export default function DentalImplantsPage() {
                         <p className="text-gray-500">(200+ Reviews)</p>
                     </div>
 
-                    <div className="flex flex-wrap gap-4">
+                    <div className="flex flex-wrap gap-4 mb-8">
                         <span className="px-4 py-2 bg-[#FDFBF0] border border-[#1d5343]/10 rounded-lg text-[#1d5343] font-medium text-sm">
                             1000+ Successful Implants
                         </span>
@@ -281,13 +281,17 @@ export default function DentalImplantsPage() {
                             Honest Pricing Clinic
                         </span>
                     </div>
+                    
+                    <p className="text-gray-500 text-sm leading-relaxed max-w-md">
+                        We are located right above ICICI Bank on Neeladri Main Road. Easy parking available for patients.
+                    </p>
                 </div>
             </ScrollAnimation>
 
             <ScrollAnimation delay={0.2}>
-                {/* ZERO-CLICK TRUST SIGNAL: REVIEW WIDGET */}
-                <div className="bg-white border border-gray-100 rounded-[2rem] p-6 shadow-xl">
-                     {/* Placeholder for Elfsight/Google Widget */}
+                {/* ZERO-CLICK TRUST SIGNAL: REVIEW WIDGET + MAP */}
+                <div className="bg-white border border-gray-100 rounded-[2rem] p-6 shadow-xl overflow-hidden">
+                     {/* Review Header */}
                      <div className="flex items-start gap-4 mb-4">
                         <div className="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">R</div>
                         <div>
@@ -297,9 +301,40 @@ export default function DentalImplantsPage() {
                         <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" className="h-5 ml-auto opacity-50" alt="Google" />
                      </div>
                      <div className="flex text-yellow-500 mb-2">★★★★★</div>
-                     <p className="text-gray-600 text-sm leading-relaxed">
+                     <p className="text-gray-600 text-sm leading-relaxed mb-6">
                         "I live in Wipro Gate and got my implant with Dr. Pranjal. The best part was knowing exactly who would treat me. Seamless experience and honest pricing."
                      </p>
+                     
+                     {/* EMBEDDED GOOGLE MAP */}
+                     <div className="pt-6 border-t border-gray-100">
+                        <div className="flex items-center justify-between mb-3">
+                           <p className="text-xs font-bold text-gray-400 uppercase tracking-wider flex items-center gap-1">
+                             <MapPin className="w-3 h-3" /> Neeladri Main Road
+                           </p>
+                           <span className="text-[10px] text-green-600 font-bold bg-green-50 px-2 py-1 rounded-full">OPEN NOW</span>
+                        </div>
+                        <div className="rounded-xl overflow-hidden h-[200px] w-full bg-gray-100 relative">
+                             <iframe 
+                               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.313100034036!2d77.6493779750761!3d12.822971987478335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae6c6cb77d7e3d%3A0x101375373673753!2sNeeladri%20Rd%2C%20Electronics%20City%20Phase%201%2C%20Electronic%20City%2C%20Bengaluru%2C%20Karnataka%20560100!5e0!3m2!1sen!2sin!4v1701234567890!5m2!1sen!2sin" 
+                               width="100%" 
+                               height="100%" 
+                               style={{ border: 0 }} 
+                               allowFullScreen 
+                               loading="lazy" 
+                               referrerPolicy="no-referrer-when-downgrade"
+                               className="grayscale-[20%] hover:grayscale-0 transition-all duration-500"
+                             ></iframe>
+                        </div>
+                        <div className="mt-3 text-center">
+                            <a 
+                              href="https://goo.gl/maps/YOUR_LINK_HERE" 
+                              target="_blank" 
+                              className="text-xs font-bold text-[#1d5343] hover:underline"
+                            >
+                              Get Directions via Google Maps →
+                            </a>
+                        </div>
+                     </div>
                 </div>
             </ScrollAnimation>
         </div>
@@ -521,7 +556,7 @@ export default function DentalImplantsPage() {
                  <div className="rounded-[2.5rem] overflow-hidden aspect-[3/4]">
                     {/* Smiling Headshot Placeholder */}
                     <img 
-                        src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1080" 
+                        src="/" 
                         alt="Dr. Pranjal" 
                         className="w-full h-full object-cover" 
                     />
