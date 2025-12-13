@@ -15,7 +15,6 @@ import {
 import { ScrollAnimation } from "@/components/ui/scroll-animation";
 import { Button } from "@/components/ui/button";
 
-
 const benefits = [
   {
     title: "Zero Waiting Policy",
@@ -53,20 +52,71 @@ export default function BookPage() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    // Simulate submission
-    setTimeout(() => {
-      setSubmitStatus("success");
-      setIsSubmitting(false);
-      setFormData({ name: "", phone: "", service: "", date: "", time: "" });
-    }, 1500);
+  e.preventDefault();
+  setIsSubmitting(true);
+  setSubmitStatus("idle");
+
+  const payload = {
+    patientName: formData.name,
+    phoneNumber: formData.phone,
+    treatmentType: formData.service,
+    preferredDate: formData.date,
+    preferredTimeSlot: formData.time,
+    bookingTimestamp: new Date().toLocaleString('en-IN', { 
+      timeZone: 'Asia/Kolkata',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    }),
+    bookingSource: "Website",
+    appointmentStatus: "Pending Confirmation"
   };
+
+  console.log("📤 Sending:", payload);
+
+  try {
+    const response = await fetch("/api/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    console.log("📥 Status:", response.status);
+    const result = await response.json();
+    console.log("📥 Result:", result);
+
+    
+    if (response.ok) {
+     
+      if (result.result === 'success' || result.success || result.message === 'Added' || response.status === 200) {
+        setSubmitStatus("success");
+        setFormData({ name: "", phone: "", service: "", date: "", time: "" });
+        console.log("✅ Booking successful!");
+      } else {
+        console.error("❌ Unexpected response:", result);
+        setSubmitStatus("error");
+      }
+    } else {
+      console.error("❌ HTTP error:", response.status);
+      setSubmitStatus("error");
+    }
+  } catch (error) {
+    console.error("❌ Booking submission error:", error);
+    setSubmitStatus("error");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
   return (
     <div className="bg-[#FDFBF0] min-h-screen">
       
-      {/* --- HEADER --- */}
+    
       <section className="relative pt-32 pb-12 px-6 text-center">
         <div className="max-w-3xl mx-auto">
           <ScrollAnimation>
@@ -133,6 +183,7 @@ export default function BookPage() {
                           value={formData.phone}
                           onChange={handleChange}
                           required
+                          pattern="[0-9]{10}"
                           className="w-full pl-11 pr-4 py-4 rounded-xl bg-[#FDFBF0] border-transparent focus:bg-white focus:border-[#1d5343] focus:ring-0 transition-all text-[#1A1A1A] font-medium"
                           placeholder="+91 98765..."
                         />
@@ -149,15 +200,16 @@ export default function BookPage() {
                         name="service"
                         value={formData.service}
                         onChange={handleChange}
+                        required
                         className="w-full pl-11 pr-4 py-4 rounded-xl bg-[#FDFBF0] border-transparent focus:bg-white focus:border-[#1d5343] focus:ring-0 transition-all text-[#1A1A1A] font-medium appearance-none cursor-pointer"
                       >
                         <option value="">Select a service...</option>
-                        <option value="consultation">General Consultation (₹500)</option>
-                        <option value="pain">Tooth Pain / Emergency</option>
-                        <option value="cleaning">Cleaning & Polishing</option>
-                        <option value="implants">Implants / Missing Teeth</option>
-                        <option value="braces">Braces / Invisalign</option>
-                        <option value="kids">Pediatric (Kids) Checkup</option>
+                        <option value="General Consultation (₹500)">General Consultation (₹500)</option>
+                        <option value="Tooth Pain / Emergency">Tooth Pain / Emergency</option>
+                        <option value="Cleaning & Polishing">Cleaning & Polishing</option>
+                        <option value="Implants / Missing Teeth">Implants / Missing Teeth</option>
+                        <option value="Braces / Invisalign">Braces / Invisalign</option>
+                        <option value="Pediatric (Kids) Checkup">Pediatric (Kids) Checkup</option>
                       </select>
                     </div>
                   </div>
@@ -174,6 +226,7 @@ export default function BookPage() {
                           value={formData.date}
                           onChange={handleChange}
                           required
+                          min={new Date().toISOString().split('T')[0]}
                           className="w-full pl-11 pr-4 py-4 rounded-xl bg-[#FDFBF0] border-transparent focus:bg-white focus:border-[#1d5343] focus:ring-0 transition-all text-[#1A1A1A] font-medium"
                         />
                       </div>
@@ -186,12 +239,13 @@ export default function BookPage() {
                           name="time"
                           value={formData.time}
                           onChange={handleChange}
+                          required
                           className="w-full pl-11 pr-4 py-4 rounded-xl bg-[#FDFBF0] border-transparent focus:bg-white focus:border-[#1d5343] focus:ring-0 transition-all text-[#1A1A1A] font-medium appearance-none cursor-pointer"
                         >
                           <option value="">Select time...</option>
-                          <option value="morning">Morning (10 AM - 1 PM)</option>
-                          <option value="afternoon">Afternoon (2 PM - 5 PM)</option>
-                          <option value="evening">Evening (5 PM - 8 PM)</option>
+                          <option value="Morning (10 AM - 1 PM)">Morning (10 AM - 1 PM)</option>
+                          <option value="Afternoon (2 PM - 5 PM)">Afternoon (2 PM - 5 PM)</option>
+                          <option value="Evening (5 PM - 8 PM)">Evening (5 PM - 8 PM)</option>
                         </select>
                       </div>
                     </div>
@@ -204,6 +258,17 @@ export default function BookPage() {
                       <div>
                         <p className="font-bold">Booking Request Received!</p>
                         <p className="text-xs opacity-80">Our front desk will call you shortly to confirm.</p>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Error Message */}
+                  {submitStatus === "error" && (
+                    <div className="p-4 rounded-xl bg-red-50 text-red-800 text-sm font-medium flex items-center gap-3 border border-red-100">
+                      <AlertCircle className="w-5 h-5 text-red-600" />
+                      <div>
+                        <p className="font-bold">Submission Failed</p>
+                        <p className="text-xs opacity-80">Please try again or call us at 080-48903967.</p>
                       </div>
                     </div>
                   )}
@@ -265,7 +330,7 @@ export default function BookPage() {
                    <p className="text-gray-500 text-sm leading-relaxed mb-4">
                      Walk-ins are welcome for emergencies! Visit us at <strong>Neeladri Layout</strong> (Above ICICI Bank).
                    </p>
-                   <a href="tel:+916206700442" className="text-sm font-bold text-[#1d5343] hover:underline flex items-center gap-1">
+                   <a href="tel:08048903967" className="text-sm font-bold text-[#1d5343] hover:underline flex items-center gap-1">
                      Call Emergency Line <ArrowRight className="w-3 h-3" />
                    </a>
                  </div>

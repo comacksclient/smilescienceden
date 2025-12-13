@@ -19,7 +19,7 @@ import {
 
 export default function RootCanalPage() {
   // WhatsApp Message Encodings
-  const WA_NUM = "918048903967";
+  const WA_NUM = "916206700442";
   const PREFILL_MILD = "Hi%20Dr.%20Pranjal%2C%20I%20have%20mild%20tooth%20pain%20(%F0%9F%9F%A1).%20Can%20you%20advise%20earliest%20slot%3F%20I%E2%80%99m%20near...";
   const PREFILL_THROB = "Hi%20Dr.%20Pranjal%2C%20I%20have%20throbbing%20tooth%20pain%20(%F0%9F%9F%A0).%20Can%20you%20fit%20me%20in%20today%3F%20I%E2%80%99m%20at...";
   const PREFILL_SEVERE = "Hi%20Dr.%20Pranjal%2C%20I%E2%80%99m%20in%20UNBEARABLE%20pain%20(%F0%9F%94%B4)%20right%20now.%20Please%20help%20%E2%80%94%20any%20emergency%20slot%20available%3F";
@@ -92,7 +92,7 @@ export default function RootCanalPage() {
                  <div className="hidden sm:flex h-4 w-px bg-gray-300"></div>
                  <div className="flex items-center gap-1.5">
                     <User className="w-4 h-4 text-[#1d5343]" /> 
-                    <span>Dr. Pranjal (Owner)</span>
+                    <span>Dr. Pranjal Sinha</span>
                  </div>
                  <div className="hidden sm:flex h-4 w-px bg-gray-300"></div>
                  <div className="flex items-center gap-1.5">
@@ -256,11 +256,11 @@ Krithika Prabakaran, Electronic City</span>
               </div>
            </ScrollAnimation>
            <ScrollAnimation className="w-full md:w-2/3 text-center md:text-left">
-              <h2 className="text-2xl font-serif font-medium text-[#1A1A1A] mb-6">A Personal Note from Dr. Pranjal</h2>
+              <h2 className="text-2xl font-serif font-medium text-[#1A1A1A] mb-6">A Personal Note from Dr. Pranjal Sinha</h2>
               <blockquote className="text-lg text-gray-600 italic leading-relaxed mb-6">
                 “I don’t run a franchise. I own this practice and treat most emergency patients myself. When you walk in with pain, it becomes my responsibility. My only goal is simple: get you out of pain within an hour — without fear, without upselling, without wasting your time.”
               </blockquote>
-              <div className="font-bold text-[#1A1A1A]">Dr. Pranjal</div>
+              <div className="font-bold text-[#1A1A1A]">Dr. Pranjal Sinha</div>
               <div className="text-sm text-[#1d5343] mb-6">Chief Dentist, Smile Science</div>
               
               <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">

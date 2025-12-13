@@ -53,8 +53,8 @@ export const Header = () => {
           {/* Left Group: Logo + Nav */}
           <div className="flex items-center gap-8 xl:gap-14">
             
-            {/* Logo Group - ADJUSTED FOR PROPER SPACING AND STACKING */}
-            <Link href="/" className="flex items-center gap-3 group shrink-0">
+            {/* Logo Group - MATCHING PROVIDED IMAGE DESIGN */}
+            <Link href="/" className="flex items-center gap-1 group shrink-0">
               {/* Image Container */}
               <div className="relative w-10 h-10 flex items-center justify-center p-0.5 transition-transform duration-300">
                 <Image 
@@ -62,18 +62,19 @@ export const Header = () => {
                   alt="Smile Science Dental Clinic logo"
                   width={36}
                   height={36}
-                  className="object-contain w-full h-full"
+                  className="object-contain  relative z-10"
                 />
               </div>
               
-              {/* Text Container - Optimized alignment */}
+              {/* Text Container - Matching image layout */}
               <div className="flex flex-col justify-center -space-y-1">
-                <span className="text-lg font-extrabold text-[#1A1A1A] leading-tight tracking-tight">
+                <span className="text-md font-extrabold  text-[#1A1A1A] leading-tight ">
                   Smile Science
                 </span>
-                <span className="text-[9px] text-gray-500 font-bold tracking-widest uppercase leading-none">
+                <span className="text-xs font-semibold italic   text-[#1A1A1A] leading-none tracking-wide">
                   Dentistry
                 </span>
+                
               </div>
             </Link>
 

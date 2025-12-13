@@ -20,7 +20,7 @@ export const About = () => {
               <div className="flex items-center gap-3 mb-6">
                  <span className="h-[1px] w-8 bg-[#1d5343]"></span>
                  <span className="text-xs font-bold text-[#1d5343] uppercase tracking-widest">
-                   Meet Dr. Pranjal
+                   Meet Dr. Pranjal Sinha
                  </span>
               </div>
               
@@ -30,7 +30,7 @@ export const About = () => {
               </h1>
               
               <p className="text-[#4B5563] text-lg leading-relaxed mb-8 font-light">
-                For over 15 years, Dr. Pranjal has been the trusted dental authority in <strong>Neeladri Nagar</strong> and <strong>Electronic City</strong>. 
+                For over 15 years, Dr. Pranjal Sinha has been the trusted dental authority in <strong>Neeladri Nagar</strong> and <strong>Electronic City</strong>. 
                 Combining advanced clinical expertise with a gentle touch, he has transformed thousands of smiles—one patient at a time.
               </p>
 

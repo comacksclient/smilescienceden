@@ -73,7 +73,7 @@ export default function DentalImplantsPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="https://wa.me/918048903967?text=Hi%20Dr.%20Pranjal,%20I%20have%20a%20missing%20tooth.%20Can%20I%20send%20my%20X-ray%20to%20check%20if%20I%E2%80%99m%20eligible%20for%20an%20implant?" className="w-full sm:w-auto">
+                <a href="https://wa.me/91916206700442?text=Hi%20Dr.%20Pranjal,%20I%20have%20a%20missing%20tooth.%20Can%20I%20send%20my%20X-ray%20to%20check%20if%20I%E2%80%99m%20eligible%20for%20an%20implant?" className="w-full sm:w-auto">
                   <Button className="w-full h-14 px-8 rounded-full bg-[#1d5343] hover:bg-[#153e32] text-white transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 text-base font-bold">
                     <MessageCircle className="w-5 h-5" /> Check Eligibility on WhatsApp
                   </Button>
@@ -289,7 +289,7 @@ export default function DentalImplantsPage() {
                         </div>
                         <div className="mt-3 text-center">
                             <a 
-                              href="https://goo.gl/maps/YOUR_LINK_HERE" 
+                              href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.313100034036!2d77.6493779750761!3d12.822971987478335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae6c6cb77d7e3d%3A0x101375373673753!2sNeeladri%20Rd%2C%20Electronics%20City%20Phase%201%2C%20Electronic%20City%2C%20Bengaluru%2C%20Karnataka%20560100!5e0!3m2!1sen!2sin!4v1701234567890!5m2!1sen!2sin" 
                               target="_blank" 
                               className="text-xs font-bold text-[#1d5343] hover:underline"
                             >
@@ -386,7 +386,7 @@ export default function DentalImplantsPage() {
                         <p className="text-sm font-medium text-[#1A1A1A] mb-8 bg-white p-3 rounded-lg border border-[#1d5343]/10">
                             Ideal: Back teeth & high chewing load
                         </p>
-                        <a href="https://wa.me/918048903967?text=Hi%20Doctor,%20I%20want%20an%20exact%20quote%20for%20single%20implant." className="block">
+                        <a href="https://wa.me/916206700442?text=Hi%20Doctor,%20I%20want%20an%20exact%20quote%20for%20single%20implant." className="block">
                             <Button className="w-full rounded-full bg-[#1d5343] hover:bg-[#163f33] text-white">Get Exact Price Quote</Button>
                         </a>
                     </div>
@@ -402,7 +402,7 @@ export default function DentalImplantsPage() {
                         <p className="text-sm font-medium text-[#1A1A1A] mb-8 bg-gray-50 p-3 rounded-lg">
                             For denture replacement or multiple missing teeth.
                         </p>
-                        <a href="https://wa.me/918048903967?text=Hi%20Doctor,%20I%20want%20an%20exact%20quote%20for%20full%20mouth." className="block">
+                        <a href="https://wa.me/916206700442?text=Hi%20Doctor,%20I%20want%20an%20exact%20quote%20for%20full%20mouth." className="block">
                             <Button variant="outline" className="w-full rounded-full border-[#1A1A1A] text-[#1A1A1A] bg-[#1d5343] hover:bg-[#163f33]]">Get Exact Price Quote</Button>
                         </a>
                     </div>
@@ -512,7 +512,7 @@ export default function DentalImplantsPage() {
             </ScrollAnimation>
             <ScrollAnimation delay={0.2}>
                 <h2 className="text-3xl font-serif font-medium text-[#1A1A1A] mb-6">
-                    Your Implant Surgeon — Dr. Pranjal
+                    Your Implant Surgeon — Dr. Pranjal Sinha
                 </h2>
                 <div className="space-y-4">
                     <div className="flex items-center gap-3 p-3 bg-[#FDFBF0] rounded-xl border border-[#1d5343]/10">
@@ -575,7 +575,7 @@ export default function DentalImplantsPage() {
                         </div>
                         <h3 className="text-lg font-bold text-red-900 mb-1">Only 1 Implant Slots Per Day</h3>
                         <p className="text-sm text-red-800 mb-4">To maintain strict sterilization & precision. Slots fill 3–5 days in advance.</p>
-                        <a href="https://wa.me/918048903967?text=Hi%20Doctor,%20I%20want%20to%20check%20the%20next%20available%20slot." className="inline-block">
+                        <a href="https://wa.me/916206700442?text=Hi%20Doctor,%20I%20want%20to%20check%20the%20next%20available%20slot." className="inline-block">
                              <span className="text-sm font-bold text-red-600 underline">Check Next Available Slot on WhatsApp →</span>
                         </a>
                     </div>
@@ -609,7 +609,7 @@ export default function DentalImplantsPage() {
              </p>
              
              <div className="flex flex-col items-stretch gap-4 justify-center sm:flex-row sm:items-center">
-               <a href="https://wa.me/918048903967?text=Hi%20Dr.%20Pranjal,%20I%20have%20a%20missing%20tooth.%20Can%20I%20send%20my%20X-ray%20to%20check%20if%20I%E2%80%99m%20eligible%20for%20an%20implant?" className="w-full sm:w-auto">
+               <a href="https://wa.me/916206700442?text=Hi%20Dr.%20Pranjal,%20I%20have%20a%20missing%20tooth.%20Can%20I%20send%20my%20X-ray%20to%20check%20if%20I%E2%80%99m%20eligible%20for%20an%20implant?" className="w-full sm:w-auto">
                  <Button className="h-16 w-full rounded-full bg-white text-[#1d5343] transition-all hover:bg-gray-100 flex items-center justify-center gap-2 font-bold sm:w-auto sm:px-10 text-lg shadow-xl">
                    <MessageCircle className="w-5 h-5" /> Check Eligibility on WhatsApp
                  </Button>

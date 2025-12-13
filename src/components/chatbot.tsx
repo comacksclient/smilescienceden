@@ -140,7 +140,7 @@ export const Chatbot = () => {
         return (
           <div className="flex flex-col gap-3 w-full">
             {msg.image && (
-              <div className="relative w-full h-32 rounded-lg overflow-hidden mb-1">
+              <div className="relative w-full h-38 rounded-lg overflow-hidden mb-1">
                 <img src={msg.image} alt="Doctor" className="w-full h-full object-cover" />
               </div>
             )}

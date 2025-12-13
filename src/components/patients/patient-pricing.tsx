@@ -94,7 +94,7 @@ export const PatientPricing = () => {
                 <p className="text-white/80 text-sm mb-4 relative z-10 leading-relaxed">
                   Send us your referral notes or treatment plan and we'll provide a written estimate within 24 hours.
                 </p>
-                <a href="mailto:drpranjal@smilescience.in" className="inline-flex items-center text-white font-bold text-sm border-b border-white/30 pb-0.5 hover:border-white transition-colors relative z-10">
+                <a href="tel+916206700442" className="inline-flex items-center text-white font-bold text-sm border-b border-white/30 pb-0.5 hover:border-white transition-colors relative z-10">
                   Get Estimate →
                 </a>
                 

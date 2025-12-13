@@ -61,7 +61,7 @@ export const PatientSupport = () => {
             <div className="bg-white/5 border border-white/10 rounded-[2rem] p-8 backdrop-blur-sm hover:bg-white/10 transition-colors duration-300 h-full flex flex-col justify-between group">
               <div>
                 <p className="text-xs uppercase tracking-[0.25em] text-white/40 mb-4 font-bold">Message Us</p>
-                <p className="text-2xl font-serif font-medium mb-2">+91 94290 04884</p>
+                <p className="text-2xl font-serif font-medium mb-2">+91 6206700442</p>
                 <p className="text-sm text-white/60 leading-relaxed">WhatsApp support available for quick questions and updates.</p>
               </div>
               <div className="mt-8 pt-6 border-t border-white/5 flex items-center gap-2 text-sm font-medium text-white/80 group-hover:text-white transition-colors">
