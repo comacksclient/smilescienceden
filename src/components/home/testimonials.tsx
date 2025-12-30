@@ -82,7 +82,7 @@ const ReviewCard = ({
             {name}
           </figcaption>
           <div className="flex items-center gap-1.5">
-             <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="G" className="w-3 h-3" />
+             <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="test" className="w-3 h-3" />
              <p className="text-[10px] uppercase font-bold text-gray-400 tracking-wide">{username}</p>
           </div>
         </div>

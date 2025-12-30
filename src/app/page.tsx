@@ -1,15 +1,13 @@
-import { Chatbot } from "@/components/chatbot";
-import { Footer } from "@/components/footer";
-import { Header } from "@/components/header";
+
 import { Features } from "@/components/home/features";
 import { Hero } from "@/components/home/herosection";
 import { Membership } from "@/components/home/membership";
 import { OurWorks } from "@/components/home/ourworks";
 import { PersonalizedCare } from "@/components/home/personalisedcare";
 import { Testimonials } from "@/components/home/testimonials";
-import { Stats } from "@/components/home/stats";
+
 import { CTA } from "@/components/home/cta";
-import { AboutPreview } from "@/components/home/aboutpreview";
+
 
 
 export default function Home() {

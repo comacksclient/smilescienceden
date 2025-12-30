@@ -18,12 +18,12 @@ const manrope = Manrope({
   display: "swap",
 });
 
-const siteUrl = "https://smilescience.in/";
+const siteUrl = "https://smilesciencedentistry.in/";
 const clinicName = "Smile Science Dental Clinic";
 
 
 const clinicDescription =
-  "Smile Science Dental Clinic — Neeladri Nagar’s most trusted dental clinic in Electronic City Phase 1. Specialist dentists for painless Root Canal Treatment (RCT), Dental Implants, Clear Aligners, Invisalign, Braces, Teeth Cleaning, Child Dentistry, Smile Designing, and Emergency Dental Care. 4.8★ rated with advanced technologies and affordable prices.";
+  "Smile Science Dentistry: Trusted Electronic City dentists for painless RCT, implants. 4.8★ rated expert care.";
 
 export const viewport: Viewport = {
   themeColor: "#FDFBF7",
@@ -37,33 +37,33 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
   title: {
-    default: `${clinicName} | Best Dentist in Neeladri Nagar & Electronic City Phase 1`,
+    default: `${clinicName} | Best Dentist in Electronic City`,
     template: `%s | ${clinicName}`,
   },
 
   description: clinicDescription,
 
 
-     icons: {
-    icon: "/logo.png", 
+  icons: {
+    icon: "/logo.png",
     shortcut: "/logo.png",
     apple: "/logo.png",
   },
 
   keywords: [
-    
-    "Dentist in Neeladri Nagar",
-    "Dentist in Electronic City Phase 1",
-    "Best dentist in Neeladri Layout",
-    "Dental Clinic Neeladri Nagar",
-    "Dental Clinic Electronic City Phase 1",
 
-   
+    "Dentist in Neeladri Nagar",
+    "Dentist in Electronic City",
+    "Best dentist Electronic City",
+    "Dental Clinic Neeladri Nagar",
+    "Dental Clinic Electronic City",
+
+
     "Painless Root Canal Near Me",
     "Root Canal Specialist Electronic City",
     "Dental Implants Neeladri Nagar",
     "Clear Aligners Electronic City",
-    "Invisalign Electronic City Phase 1",
+    "Invisalign Electronic City",
     "Cosmetic Dentist Neeladri Layout",
     "Smile Designing Near Me",
     "Dental Braces Electronic City",
@@ -83,9 +83,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Smile Science Dental Clinic" }],
   creator: clinicName,
 
-  
+
   openGraph: {
-    title: `Smile Science Dental Clinic | Best Dentist in Neeladri Nagar & Electronic City Phase 1`,
+    title: `Best Dental Clinic in the Electronic City`,
     description: clinicDescription,
     url: siteUrl,
     siteName: clinicName,
@@ -96,7 +96,7 @@ export const metadata: Metadata = {
         url: `${siteUrl}/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: "Smile Science Dental Clinic - Best Dentist in Neeladri Nagar & Electronic City Phase 1",
+        alt: "Smile Science Dental Clinic - Best Dentist in Neeladri Nagar & Electronic City",
       },
     ],
   },
@@ -104,7 +104,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: `${clinicName} | Trusted Dentist in Neeladri Nagar & Electronic City`,
+    title: `${clinicName} | Trusted Dentist in the Electronic City`,
     description: clinicDescription,
     images: [`${siteUrl}/og-image.jpg`],
   },
@@ -294,13 +294,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Script id="ld-json" type="application/ld+json">
           {JSON.stringify(localBusinessSchema)}
         </Script>
-         <Script
+        <Script
           id="ld-faq"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
 
-       
+
         <Script
           id="ld-services"
           type="application/ld+json"

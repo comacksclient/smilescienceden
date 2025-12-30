@@ -7,15 +7,15 @@ export const PatientSupport = () => {
   return (
     <section className="relative w-full py-24 px-6 md:px-12 bg-[#1B4D3E] overflow-hidden">
       
-      {/* --- BACKGROUND AMBIENCE --- */}
+     
       <div className="absolute inset-0 bg-gradient-to-br from-[#1B4D3E] to-[#12362b] z-0" />
-      {/* Subtle Glows */}
+     
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-[120px] pointer-events-none translate-x-1/3 -translate-y-1/3" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#FDFBF0]/5 rounded-full blur-[100px] pointer-events-none -translate-x-1/3 translate-y-1/3" />
 
       <div className="max-w-[1200px] mx-auto relative z-10 text-white">
         
-        {/* HEADER */}
+      
         <ScrollAnimation>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
             <div className="max-w-2xl">

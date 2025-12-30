@@ -23,7 +23,7 @@ export const Hero = () => {
       <div className="absolute inset-0 w-full h-full lg:hidden z-0 pointer-events-none">
         <ImageWithFallback
           src="/img.jpeg"
-          alt="Dental clinic"
+          alt="Smile Science Dental Clinic "
           className="object-cover w-full h-full  "
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#FDFBF0] via-[#FDFBF0]/80 to-transparent" />
@@ -35,7 +35,7 @@ export const Hero = () => {
         {/* LEFT CONTENT */}
         {/* UPDATED: Changed 'pt-20' to 'pt-6' to shift text UP in mobile view */}
         <div className="w-full lg:w-[50%] flex flex-col justify-center h-full pt-6 lg:pt-0 pl-[3px] relative">
-          
+
           <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[80%] h-[80%] bg-white/40 blur-3xl -z-10 rounded-full" />
 
           <div className="flex items-center gap-1 mb-1 ml-1">
@@ -52,10 +52,10 @@ export const Hero = () => {
             Your Smile,{" "}
             {/* WRAPPER */}
             <span className="inline-block">
-              <img 
-                src="/tooth.png" 
-                alt="Tooth Icon" 
-                className="w-12 h-12 md:w-16 md:h-16 lg:w-[4.5rem] lg:h-[4.5rem] object-contain -rotate-12 drop-shadow-md translate-y-2 md:translate-y-3 ml-1" 
+              <img
+                src="/tooth.png"
+                alt="Smile Science Dental Clinic Tooth Logo Icon"
+                className="w-12 h-12 md:w-16 md:h-16 lg:w-[4.5rem] lg:h-[4.5rem] object-contain -rotate-12 drop-shadow-md translate-y-2 md:translate-y-3 ml-1"
               />
             </span>
             <br />
@@ -64,7 +64,7 @@ export const Hero = () => {
 
           {/* Subtext */}
           <p className="text-[#4B5563] text-[15px] leading-[1.7] max-w-[480px] mb-10 font-normal opacity-90">
-          Trusted specialist dentists in Neeladri Nagar, Electronic City Phase 1 , offering painless and advanced dental treatments for every smile.
+            Trusted specialist dentists in <strong>Electronic City </strong> , offering painless and advanced dental treatments for every smile.
           </p>
 
           {/* BUTTONS */}
@@ -92,7 +92,7 @@ export const Hero = () => {
           >
             <ImageWithFallback
               src="/img.jpeg"
-              alt="Dental clinic"
+              alt="Smile Science Dental Clinic Interior in Neeladri Nagar"
               className="object-cover w-full h-full object-[center_35%] scale-105  "
             />
             <div className="absolute inset-0 bg-[#FDFBF0] opacity-10 mix-blend-overlay" />

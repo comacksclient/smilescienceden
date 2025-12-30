@@ -19,7 +19,7 @@ const WorkCard = ({
     <div className="rounded-[2rem] overflow-hidden aspect-[3/4] relative bg-gray-100">
       <ImageWithFallback
         src={image}
-        alt={alt} 
+        alt={alt}
         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
       />
       {/* Subtle Gradient Overlay for depth */}
@@ -46,11 +46,11 @@ export const OurWorks = () => {
               002 — Transformations
             </span>
             <h2 className="text-4xl md:text-5xl font-serif font-medium text-[#1A1A1A] text-left max-w-md tracking-tight leading-[1.1]">
-              Real Results, <br/>
+              Real Results, <br />
               <span className="italic text-[#1d5343]">Real Smiles.</span>
             </h2>
           </div>
-          
+
           <p className="text-gray-500 text-sm max-w-xs mb-2 leading-relaxed hidden md:block">
             See how we have transformed smiles across Electronic City using advanced cosmetic and restorative techniques.
           </p>
@@ -58,7 +58,7 @@ export const OurWorks = () => {
       </ScrollAnimation>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 mb-24">
-        
+
         {/* Card 1: Invisalign - Image: Confident smile */}
         <ScrollAnimation delay={0.1}>
           <WorkCard
@@ -123,7 +123,7 @@ export const OurWorks = () => {
 
           <div className="max-w-lg space-y-6">
             <p className="text-gray-500 text-base leading-relaxed font-light">
-              Expert Dental Care in <strong>Neeladri Nagar, Electronic City</strong>. We combine art and science to give you the confidence you deserve.
+              Expert Dental Care in <strong>Electronic City</strong>. We combine art and science to give you the confidence you deserve.
             </p>
             <div className="h-px w-12 bg-[#1d5343]/30 mx-auto"></div>
             <p className="text-xs font-bold tracking-widest text-gray-400 uppercase">
