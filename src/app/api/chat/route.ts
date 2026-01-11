@@ -7,37 +7,41 @@ import { Pinecone as PineconeClient } from "@pinecone-database/pinecone";
 
 
 const llm = new ChatOpenAI({
-  model: "gpt-5-nano",
-  temperature: 1, 
+  model: "gpt-4o-mini",
+  temperature: 0.7,
+  maxTokens: 150,
   openAIApiKey: process.env.OPENAI_API_KEY,
 });
-
 
 const embeddings = new OpenAIEmbeddings({
-  model: "text-embedding-3-small", 
+  model: "text-embedding-3-small",
   openAIApiKey: process.env.OPENAI_API_KEY,
 });
 
-let vectorStore: PineconeStore | null = null;
 
+let vectorStorePromise: Promise<PineconeStore> | null = null;
 
-async function initializePinecone() {
-  if (!vectorStore) {
-    try {
-      const pinecone = new PineconeClient({
-        apiKey: process.env.PINECONE_API_KEY!,
-      });
-      const pineconeIndex = pinecone.Index(process.env.PINECONE_INDEX_NAME!);
-      vectorStore = await PineconeStore.fromExistingIndex(embeddings, {
-        pineconeIndex,
-        namespace: "smile-science-info", 
-      });
-      console.log(" Pinecone connected");
-    } catch (error) {
-      console.error("Pinecone initialization failed:", error);
-    }
+function getPineconeStore() {
+  if (!vectorStorePromise) {
+    vectorStorePromise = (async () => {
+      try {
+        const pinecone = new PineconeClient({
+          apiKey: process.env.PINECONE_API_KEY!,
+        });
+        const pineconeIndex = pinecone.Index(process.env.PINECONE_INDEX_NAME!);
+        const store = await PineconeStore.fromExistingIndex(embeddings, {
+          pineconeIndex,
+          namespace: "smile-science-info",
+        });
+
+        return store;
+      } catch (error) {
+        console.error(" Pinecone initialization failed:", error);
+        throw error;
+      }
+    })();
   }
-  return vectorStore;
+  return vectorStorePromise;
 }
 
 const DOCTORS_DB = {
@@ -62,7 +66,6 @@ const AgentState = Annotation.Root({
   user_name: Annotation<string>(),
   final_response: Annotation<any>(),
 });
-
 
 function extractUserName(msg: string, history: Array<{ role: string; content: string }>): string {
   const patterns = [
@@ -97,8 +100,11 @@ function extractUserName(msg: string, history: Array<{ role: string; content: st
   return "";
 }
 
+
 async function intentClassifierNode(state: typeof AgentState.State) {
-  const msg = state.user_message.trim();
+  const msg = state.user_message;
+  const lowerMsg = msg.toLowerCase();
+
 
   if (msg === "INIT_CHAT") return { intent: "welcome" };
   if (msg.includes("ACTION_NAVIGATE_BOOKING")) return { intent: "booking_form_request" };
@@ -108,44 +114,35 @@ async function intentClassifierNode(state: typeof AgentState.State) {
     return { intent: "doctor_details", selected_doctor_id: docId };
   }
 
-  const recentHistory = state.chat_history
-    .slice(-6)
-    .map(m => `${m.role}: ${m.content}`)
-    .join("\n");
 
-  const classifierPrompt = `
-You are classifying user intent for Smile Science Dentistry.
-
-Recent conversation:
-${recentHistory}
-
-Current user message: "${msg}"
-
-Classify into ONE category:
-- 'find_doctor': Wants to know about doctor/dentist
-- 'services_list': Explicitly asks for services list/menu
-- 'emergency': Mentions pain, urgent, broken tooth, swelling, bleeding
-- 'booking_form_request': Wants to book/schedule appointment
-- 'general_chat': Everything else (questions, greetings, casual talk)
-
-Return ONLY the category word.
-`;
-
-  try {
-    const response = await llm.invoke(classifierPrompt);
-    const intent = response.content.toString().trim().toLowerCase();
-    const validIntents = ["find_doctor", "services_list", "emergency", "booking_form_request", "general_chat"];
-    return { intent: validIntents.includes(intent) ? intent : "general_chat" };
-  } catch (e) {
-    console.error("⚠️ Intent Classifier Error:", e);
-    return { intent: "general_chat" };
+  if (lowerMsg.includes("book") || lowerMsg.includes("appointment") || lowerMsg.includes("schedule") || lowerMsg.includes("visit")) {
+    return { intent: "booking_form_request" };
   }
-}
 
+  if (lowerMsg.includes("price") || lowerMsg.includes("cost") || lowerMsg.includes("charges") || lowerMsg.includes("expensive")) {
+    return { intent: "services_list" };
+  }
+
+  if (lowerMsg.includes("services") || lowerMsg.includes("treatment") || lowerMsg.includes("offer")) {
+    return { intent: "services_list" };
+  }
+
+  if (lowerMsg.includes("pain") || lowerMsg.includes("emergency") || lowerMsg.includes("broken") || lowerMsg.includes("bleeding") || lowerMsg.includes("hurt")) {
+    return { intent: "emergency" };
+  }
+
+  if ((lowerMsg.includes("who") && lowerMsg.includes("doctor")) || lowerMsg.includes("pranjal") || lowerMsg.includes("specialist") || lowerMsg.includes("dentist")) {
+    return { intent: "find_doctor" };
+  }
+
+
+  return { intent: "general_chat" };
+}
 
 async function ragRetrieverNode(state: typeof AgentState.State) {
   try {
-    const store = await initializePinecone();
+
+    const store = await getPineconeStore();
     if (!store) {
       console.log(" Pinecone not available");
       return { context_from_pinecone: "" };
@@ -153,7 +150,7 @@ async function ragRetrieverNode(state: typeof AgentState.State) {
 
     const query = state.user_message;
     const results = await store.similaritySearch(query, 3);
-    
+
     if (results.length === 0) {
       return { context_from_pinecone: "" };
     }
@@ -174,7 +171,7 @@ async function generalChatNode(state: typeof AgentState.State) {
   const msg = state.user_message;
   const history = state.chat_history || [];
   const pineconeContext = state.context_from_pinecone || "";
-  
+
   const detectedName = extractUserName(msg, history);
   const userName = state.user_name || detectedName;
 
@@ -258,7 +255,7 @@ Your task:
 
 function welcomeMessageNode() {
   const welcomeText = "Namaste! 🙏 Welcome to Smile Science Dentistry.\nI'm here to ensure your smile stays healthy. How can I help you today?";
-  
+
   return {
     chat_history: [{ role: "assistant", content: welcomeText }],
     final_response: {
@@ -316,7 +313,7 @@ function retrieveDoctorDetailsNode(state: typeof AgentState.State) {
 
 function bookingFormNode() {
   const responseText = "Great! Let me help you book an appointment with Dr. Pranjal. Please provide:";
-  
+
   return {
     final_response: {
       type: "booking_form",
@@ -348,24 +345,24 @@ async function bookingConfirmationNode(state: typeof AgentState.State) {
   let responseText = "Thank you! We have received your request.";
   let name = "";
   let phone = "";
-  
+
   try {
     const parts = msg.split("_");
     const nameIndex = parts.indexOf("NAME");
     const phoneIndex = parts.indexOf("PHONE");
-    
+
     if (nameIndex > -1 && phoneIndex > -1) {
       name = parts.slice(nameIndex + 1, phoneIndex).join(" ");
       phone = parts.slice(phoneIndex + 1).join(" ");
-      
-     
+
+
       const bookingResponse = await fetch(process.env.NEXT_PUBLIC_APP_URL + '/api/bot', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           patientName: name,
           phoneNumber: phone,
-          bookingTimestamp: new Date().toLocaleString('en-IN', { 
+          bookingTimestamp: new Date().toLocaleString('en-IN', {
             timeZone: 'Asia/Kolkata',
             year: 'numeric',
             month: 'short',
@@ -377,9 +374,9 @@ async function bookingConfirmationNode(state: typeof AgentState.State) {
           appointmentStatus: "Pending Call"
         }),
       });
-      
+
       const result = await bookingResponse.json();
-      
+
       if (result.result === 'success') {
         responseText = `Thanks ${name}! ✅\n\nWe have received your booking request.\n\nOur team will call you at ${phone} shortly to confirm your appointment with Dr. Pranjal Sinha.\n\n📞 Expect a call within 2 hours during clinic hours (Mon-Sat, 12 PM - 8 PM).`;
       } else {
@@ -406,7 +403,7 @@ async function bookingConfirmationNode(state: typeof AgentState.State) {
 
 function serviceInfoNode(state: typeof AgentState.State) {
   const responseText = "We specialize in:\n\n✨ Cosmetic: Smile Makeovers\n🦷 Restorative: Painless Root Canals & Implants\n⚙️ Ortho: Braces & Aligners\n🛡️ General: Laser Dentistry & Kids Care\n\nDr. Pranjal ensures every procedure is gentle.";
-  
+
   return {
     chat_history: [
       { role: "user", content: state.user_message },
@@ -422,7 +419,7 @@ function serviceInfoNode(state: typeof AgentState.State) {
 
 function emergencyNode(state: typeof AgentState.State) {
   const responseText = "🚨 We are here for you.\n\nIf you are in pain, please visit us in Neeladri Nagar immediately or call us.\n\nContact: 080-48903967";
-  
+
   return {
     chat_history: [
       { role: "user", content: state.user_message },
@@ -441,7 +438,7 @@ function emergencyNode(state: typeof AgentState.State) {
 
 const workflow = new StateGraph(AgentState)
   .addNode("classifier", intentClassifierNode)
-  .addNode("retriever", ragRetrieverNode) 
+  .addNode("retriever", ragRetrieverNode)
   .addNode("welcome", welcomeMessageNode)
   .addNode("find_doctor", retrieveDoctorProfileNode)
   .addNode("doctor_details", retrieveDoctorDetailsNode)
@@ -460,14 +457,14 @@ const routeIntent = (state: typeof AgentState.State) => {
     booking_submission: "booking_confirm",
     services_list: "services",
     emergency: "emergency",
-    general_chat: "retriever", 
+    general_chat: "retriever",
   };
   return intentMap[state.intent || "general_chat"] || "retriever";
 };
 
 workflow.addEdge("__start__", "classifier");
 workflow.addConditionalEdges("classifier", routeIntent);
-workflow.addEdge("retriever", "general"); 
+workflow.addEdge("retriever", "general");
 
 ["welcome", "find_doctor", "doctor_details", "booking_form", "booking_confirm", "services", "emergency", "general"].forEach((node: any) => {
   workflow.addEdge(node, END);
@@ -481,7 +478,7 @@ export async function POST(req: NextRequest) {
     const { message, history, question } = body;
 
     const userMessage = message || question;
-    
+
     let chatHistory: Array<{ role: string; content: string }> = [];
     if (Array.isArray(history)) {
       chatHistory = history.map((msg, idx) => ({

@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
   title: {
-    default: `${clinicName} | Best Dentist in Electronic City`,
+    default: `${clinicName}`,
     template: `%s | ${clinicName}`,
   },
 
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
 
 
   openGraph: {
-    title: `Best Dental Clinic in the Electronic City`,
+    title: `Best Dentist in Electronic City`,
     description: clinicDescription,
     url: siteUrl,
     siteName: clinicName,
@@ -93,7 +93,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${siteUrl}/og-image.jpg`,
+        url: `${siteUrl}/logo.png`,
         width: 1200,
         height: 630,
         alt: "Smile Science Dental Clinic - Best Dentist in Neeladri Nagar & Electronic City",
@@ -106,7 +106,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${clinicName} | Trusted Dentist in the Electronic City`,
     description: clinicDescription,
-    images: [`${siteUrl}/og-image.jpg`],
+    images: [`${siteUrl}logo.png`],
   },
 
   robots: {
@@ -134,9 +134,7 @@ const localBusinessSchema = {
     "Smile Science Dental Clinic offers painless Root Canal Treatment, Dental Implants, Clear Aligners, Invisalign, Braces, Smile Designing, Kids Dentistry, and Emergency Dental Care in Neeladri Nagar and Electronic City Phase 1. 4.8-star rated clinic with specialist dentists and advanced technology.",
 
   image: [
-    `${siteUrl}/clinic-exterior.jpg`,
-    `${siteUrl}/clinic-interior.jpg`,
-    `${siteUrl}/team.jpg`,
+    `${siteUrl}/logo.png`,
   ],
 
   url: siteUrl,
